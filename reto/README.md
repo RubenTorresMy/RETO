@@ -194,4 +194,4 @@ Para preguntas o sugerencias, contacta al desarrollador.
 ---
 
 **Estado**: En desarrollo 🚧
-**Última actualización**: Abril 2025
+**Última actualización**: Julio 2025
