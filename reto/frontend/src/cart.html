@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - VEXILO</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-top">
+            <p class="promo-text">SIGN UP AND GET 20% OFF YOUR FIRST ORDER <a href="#newsletter">Sign Up Now</a></p>
+            <button class="close-promo" aria-label="Close promotion">×</button>
+        </div>
+        <nav class="navbar">
+            <a href="index.html" class="logo" aria-label="VEXILO Home">
+                <img src="https://i.ibb.co/hxvWQ0f1/imagen-logo-sin-nombre.png" alt="VEXILO Logo" class="logo-icon">
+                <span class="logo-text">VEXILO</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">HOME</a></li>
+                <li><a href="catalog.html" class="nav-link">CATALOG</a></li>
+                <li><a href="ai.html" class="nav-link">AI</a></li>
+                <li><a href="product-details.html#customization" class="nav-link">CUSTOMIZE</a></li>
+            </ul>
+            <div class="nav-right">
+                <input type="text" placeholder="Search for products..." class="search-input" aria-label="Search for products">
+                <button class="cart-btn" aria-label="Cart"><img src="https://img.freepik.com/vector-premium/icono-web-carrito-compras-vector-minimalista-plataformas-comercio-electronico-tiendas-linea-simbolo-carrito-simple_1231005-1491.jpg?semt=ais_hybrid&w=740&q=80" alt="Cart"></button>
+                <div class="profile-menu">
+                    <button class="profile-btn" aria-label="Profile"><img src="https://static.vecteezy.com/system/resources/previews/058/235/304/non_2x/minimalist-user-profile-icon-for-apps-and-websites-free-vector.jpg" alt="Profile"></button>
+                    <div class="profile-dropdown" id="profileDropdown">
+                        <div class="dropdown-user-info" id="dropdownUserInfo" style="display: none;">
+                            <p id="userNameDisplay"></p>
+                            <p id="userEmailDisplay"></p>
+                            <hr>
+                        </div>
+                        <a href="profile.html" class="dropdown-item" id="profileLink" style="display: none;">My Profile</a>
+                        <a href="admin.html" class="dropdown-item" id="intranetLink" style="display: none;">Intranet</a>
+                        <a href="my-orders.html" class="dropdown-item" id="ordersLink" style="display: none;">My Orders</a>
+                        <a href="my-designs.html" class="dropdown-item" id="designsLink" style="display: none;">My Designs</a>
+                        <a href="#logout" class="dropdown-item" id="logoutBtn" style="display: none;">Log Out</a>
+                        <a href="login.html" class="dropdown-item" id="loginLink">Log In</a>
+                        <a href="signup.html" class="dropdown-item" id="signupLink">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="cart-page">
+        <section class="page-heading">
+            <div class="breadcrumb">
+                <a href="index.html">HOME</a>
+                <span>›</span>
+                <span>CART</span>
+            </div>
+            <h1>Your cart</h1>
+        </section>
+
+        <section class="cart-content">
+            <div class="cart-grid">
+                <div class="cart-items-panel">
+                    <article class="cart-item" data-price="15">
+                        <div class="item-image">
+                            <img src="https://via.placeholder.com/160x140/ffdfdf/000000?text=Gradient+Graphic+T-shirt" alt="Gradient Graphic T-shirt">
+                        </div>
+                        <div class="item-details">
+                            <div class="item-top">
+                                <h3>Gradient Graphic T-shirt</h3>
+                                <button type="button" class="cart-remove" aria-label="Eliminar artículo">🗑</button>
+                            </div>
+                            <div class="item-meta">
+                                <span>SIZE: LARGE</span>
+                                <span>COLOR: WHITE</span>
+                            </div>
+                            <div class="item-bottom">
+                                <div class="item-quantity">
+                                    <button type="button" class="qty-btn qty-decrease">−</button>
+                                    <input type="number" class="qty-input" value="1" min="1">
+                                    <button type="button" class="qty-btn qty-increase">+</button>
+                                </div>
+                                <div class="cart-item-price">$15.00</div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="cart-item" data-price="10">
+                        <div class="item-image">
+                            <img src="https://via.placeholder.com/160x140/dde7ff/000000?text=Checkered+Shirt" alt="Checkered Shirt">
+                        </div>
+                        <div class="item-details">
+                            <div class="item-top">
+                                <h3>Checkered Shirt</h3>
+                                <button type="button" class="cart-remove" aria-label="Eliminar artículo">🗑</button>
+                            </div>
+                            <div class="item-meta">
+                                <span>SIZE: MEDIUM</span>
+                                <span>COLOR: RED</span>
+                            </div>
+                            <div class="item-bottom">
+                                <div class="item-quantity">
+                                    <button type="button" class="qty-btn qty-decrease">−</button>
+                                    <input type="number" class="qty-input" value="1" min="1">
+                                    <button type="button" class="qty-btn qty-increase">+</button>
+                                </div>
+                                <div class="cart-item-price">$10.00</div>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="cart-item" data-price="16">
+                        <div class="item-image">
+                            <img src="https://via.placeholder.com/160x140/ffd1ff/000000?text=Skinny+Fit+Jeans" alt="Skinny Fit Jeans">
+                        </div>
+                        <div class="item-details">
+                            <div class="item-top">
+                                <h3>Skinny Fit Jeans</h3>
+                                <button type="button" class="cart-remove" aria-label="Eliminar artículo">🗑</button>
+                            </div>
+                            <div class="item-meta">
+                                <span>SIZE: LARGE</span>
+                                <span>COLOR: BLUE</span>
+                            </div>
+                            <div class="item-bottom">
+                                <div class="item-quantity">
+                                    <button type="button" class="qty-btn qty-decrease">−</button>
+                                    <input type="number" class="qty-input" value="1" min="1">
+                                    <button type="button" class="qty-btn qty-increase">+</button>
+                                </div>
+                                <div class="cart-item-price">$16.00</div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <aside class="order-summary-panel">
+                    <div class="summary-card">
+                        <h2>Order Summary</h2>
+                        <div class="summary-row">
+                            <span>SUBTOTAL</span>
+                            <strong id="summarySubtotal">$41.00</strong>
+                        </div>
+                        <div class="summary-row">
+                            <span>DISCOUNT (20%)</span>
+                            <strong id="summaryDiscount">-$8.20</strong>
+                        </div>
+                        <div class="summary-row reward-row">
+                            <span>CREATOR POINTS</span>
+                            <strong id="summaryRewardPoints">0 pts</strong>
+                        </div>
+                        <div class="summary-row">
+                            <span>DELIVERY FEE</span>
+                            <strong id="summaryDelivery">$15.00</strong>
+                        </div>
+                        <div class="summary-row total">
+                            <span>TOTAL</span>
+                            <strong id="summaryTotal">$47.80</strong>
+                        </div>
+
+                        <div class="promo-code">
+                            <input type="text" id="promoInput" class="promo-input" placeholder="Add promo code">
+                            <button type="button" class="btn btn-secondary" id="applyPromo">Apply</button>
+                        </div>
+
+                        <a href="checkout.html" class="btn btn-primary btn-checkout">Go to Checkout →</a>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <section class="newsletter-section" id="newsletter">
+            <div class="newsletter-box">
+                <div class="newsletter-copy">
+                    <h2>STAY UPTO DATE ABOUT OUR LATEST OFFERS</h2>
+                </div>
+                <form class="newsletter-form" onsubmit="return false;">
+                    <div class="newsletter-field">
+                        <span class="newsletter-icon">✉</span>
+                        <input type="email" class="newsletter-input" placeholder="Enter your email address">
+                    </div>
+                    <button type="button" class="newsletter-submit">Subscribe to Newsletter</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h5>VEXILO</h5>
+                <p>WE HAVE FLAGGS THAT SUITS YOUR STYLE AND WHICH YOU'RE PROUD TO WEAR, FROM WOMEN TO MEN.</p>
+                <div class="social-links">
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">Twitter</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h5>COMPANY</h5>
+                <ul>
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="#">FEATURES</a></li>
+                    <li><a href="#">WORKS</a></li>
+                    <li><a href="#">CAREER</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h5>HELP</h5>
+                <ul>
+                    <li><a href="#">CUSTOMER SUPPORT</a></li>
+                    <li><a href="#">DELIVERY DETAILS</a></li>
+                    <li><a href="#">TERMS & CONDITIONS</a></li>
+                    <li><a href="#">PRIVACY POLICY</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h5>FAQ</h5>
+                <ul>
+                    <li><a href="#">ACCOUNT</a></li>
+                    <li><a href="#">MANAGE DELIVERIES</a></li>
+                    <li><a href="#">ORDERS</a></li>
+                    <li><a href="#">PAYMENTS</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h5>RESOURCES</h5>
+                <ul>
+                    <li><a href="#">FREE EBOOKS</a></li>
+                    <li><a href="#">DEVELOPMENT TUTORIAL</a></li>
+                    <li><a href="#">HOW TO - BLOG</a></li>
+                    <li><a href="#">YOUTUBE PLAYLIST</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; VEXILO 2025 - All rights reserved</p>
+            <div class="payment-methods">
+                <img class="payment-icon" src="https://www.pngmart.com/files/22/Mastercard-Logo-PNG-HD.png" alt="Mastercard">
+                <img class="payment-icon" src="https://iconape.com/wp-content/uploads/1/12/Apple-Pay-Logo-0%D9%A4.png" alt="Apple Pay">
+                <img class="payment-icon" src="https://static.vecteezy.com/system/resources/previews/020/975/567/original/visa-logo-visa-icon-transparent-free-png.png" alt="Visa">
+                <img class="payment-icon" src="https://static.vecteezy.com/system/resources/previews/021/672/629/original/google-pay-logo-transparent-free-png.png" alt="Google Pay">
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - VEXILO</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-top">
+            <p class="promo-text">SIGN UP AND GET 20% OFF YOUR FIRST ORDER <a href="#newsletter">Sign Up Now</a></p>
+            <button class="close-promo" aria-label="Close promotion">x</button>
+        </div>
+        <nav class="navbar">
+            <a href="index.html" class="logo" aria-label="VEXILO Home">
+                <img src="https://i.ibb.co/hxvWQ0f1/imagen-logo-sin-nombre.png" alt="VEXILO Logo" class="logo-icon">
+                <span class="logo-text">VEXILO</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">HOME</a></li>
+                <li><a href="catalog.html" class="nav-link">CATALOG</a></li>
+                <li><a href="ai.html" class="nav-link">AI</a></li>
+                <li><a href="product-details.html#customization" class="nav-link">CUSTOMIZE</a></li>
+            </ul>
+            <div class="nav-right">
+                <input type="text" placeholder="Search for products..." class="search-input" aria-label="Search for products">
+                <button class="cart-btn" aria-label="Cart"><img src="https://img.freepik.com/vector-premium/icono-web-carrito-compras-vector-minimalista-plataformas-comercio-electronico-tiendas-linea-simbolo-carrito-simple_1231005-1491.jpg?semt=ais_hybrid&w=740&q=80" alt="Cart"></button>
+                <div class="profile-menu">
+                    <button class="profile-btn" aria-label="Profile"><img src="https://static.vecteezy.com/system/resources/previews/058/235/304/non_2x/minimalist-user-profile-icon-for-apps-and-websites-free-vector.jpg" alt="Profile"></button>
+                    <div class="profile-dropdown" id="profileDropdown">
+                        <div class="dropdown-user-info" id="dropdownUserInfo" style="display: none;">
+                            <p id="userNameDisplay"></p>
+                            <p id="userEmailDisplay"></p>
+                            <hr>
+                        </div>
+                        <a href="profile.html" class="dropdown-item" id="profileLink" style="display: none;">My Profile</a>
+                        <a href="admin.html" class="dropdown-item" id="intranetLink" style="display: none;">Intranet</a>
+                        <a href="my-orders.html" class="dropdown-item" id="ordersLink" style="display: none;">My Orders</a>
+                        <a href="my-designs.html" class="dropdown-item" id="designsLink" style="display: none;">My Designs</a>
+                        <a href="#logout" class="dropdown-item" id="logoutBtn" style="display: none;">Log Out</a>
+                        <a href="login.html" class="dropdown-item" id="loginLink">Log In</a>
+                        <a href="signup.html" class="dropdown-item" id="signupLink">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="checkout-page">
+        <section class="page-heading">
+            <div class="breadcrumb">
+                <a href="index.html">HOME</a>
+                <span>&rsaquo;</span>
+                <a href="cart.html">CART</a>
+                <span>&rsaquo;</span>
+                <span>CHECKOUT</span>
+            </div>
+            <h1>Checkout</h1>
+            <p class="page-subtitle">Fill in your information and complete your payment.</p>
+        </section>
+
+        <section class="checkout-content">
+            <div class="checkout-grid">
+                <div class="checkout-form">
+                    <div class="checkout-card">
+                        <h2>Billing Information</h2>
+                        <div class="field-grid">
+                            <label>
+                                Full Name
+                                <input type="text" placeholder="Your name" required>
+                            </label>
+                            <label>
+                                Email Address
+                                <input type="email" placeholder="you@example.com" required>
+                            </label>
+                            <label>
+                                Country
+                                <input type="text" placeholder="Spain" required>
+                            </label>
+                            <label>
+                                Postal Code
+                                <input type="text" placeholder="28001" required>
+                            </label>
+                        </div>
+                        <label>
+                            Address
+                            <input type="text" placeholder="123 Main Street" required>
+                        </label>
+                        <div class="field-grid">
+                            <label>
+                                City
+                                <input type="text" placeholder="Madrid" required>
+                            </label>
+                            <label>
+                                State / Province
+                                <input type="text" placeholder="State" required>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="checkout-card">
+                        <h2>Payment Method</h2>
+                        <div class="payment-methods">
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="card" checked>
+                                <span>Credit Card</span>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="paypal">
+                                <span>PayPal</span>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="applepay">
+                                <span>Apple Pay</span>
+                            </label>
+                        </div>
+                        <div class="field-grid">
+                            <label>
+                                Card Number
+                                <input type="text" placeholder="1234 5678 9012 3456" required>
+                            </label>
+                            <label>
+                                Expiry Date
+                                <input type="text" placeholder="MM/YY" required>
+                            </label>
+                        </div>
+                        <div class="field-grid small-grid">
+                            <label>
+                                CVC
+                                <input type="text" placeholder="123" required>
+                            </label>
+                            <label>
+                                Card Holder
+                                <input type="text" placeholder="Name on card" required>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="checkout-card checkout-note">
+                        <h2>Order instructions</h2>
+                        <textarea placeholder="Add delivery notes or special instructions..."></textarea>
+                    </div>
+                </div>
+
+                <aside class="order-summary-panel">
+                    <div class="order-card">
+                        <h2>Order Summary</h2>
+                        <div id="checkoutOrderItems">
+                            <div class="order-item">
+                                <div class="order-item-info">
+                                    <span>Loading cart...</span>
+                                    <small>Preparing your order summary</small>
+                                </div>
+                                <strong>$0.00</strong>
+                            </div>
+                        </div>
+
+                        <div class="summary-divider"></div>
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <strong id="checkoutSubtotal">$0.00</strong>
+                        </div>
+                        <div class="summary-row">
+                            <span>Discount (20%)</span>
+                            <strong id="checkoutDiscount">-$0.00</strong>
+                        </div>
+                        <div class="summary-row">
+                            <span>Delivery Fee</span>
+                            <strong id="checkoutDelivery">$0.00</strong>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Total</span>
+                            <strong id="checkoutTotal">$0.00</strong>
+                        </div>
+
+                        <button type="button" class="btn btn-primary btn-checkout" id="placeOrderBtn">Place Order</button>
+                        <a href="cart.html" class="btn btn-secondary btn-back">Back to Cart</a>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <section class="newsletter-section" id="newsletter">
+            <div class="newsletter-box">
+                <div class="newsletter-copy">
+                    <h2>STAY UPTO DATE ABOUT OUR LATEST OFFERS</h2>
+                </div>
+                <form class="newsletter-form" onsubmit="return false;">
+                    <div class="newsletter-field">
+                        <span class="newsletter-icon">&#9993;</span>
+                        <input type="email" class="newsletter-input" placeholder="Enter your email address">
+                    </div>
+                    <button type="button" class="newsletter-submit">Subscribe to Newsletter</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h5>VEXILO</h5>
+                <p>WE HAVE FLAGGS THAT SUITS YOUR STYLE AND WHICH YOU'RE PROUD TO WEAR, FROM WOMEN TO MEN.</p>
+                <div class="social-links">
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">Twitter</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h5>COMPANY</h5>
+                <ul>
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="#">FEATURES</a></li>
+                    <li><a href="#">WORKS</a></li>
+                    <li><a href="#">CAREER</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h5>HELP</h5>
+                <ul>
+                    <li><a href="#">CUSTOMER SUPPORT</a></li>
+                    <li><a href="#">DELIVERY DETAILS</a></li>
+                    <li><a href="#">TERMS & CONDITIONS</a></li>
+                    <li><a href="#">PRIVACY POLICY</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h5>FAQ</h5>
+                <ul>
+                    <li><a href="#">ACCOUNT</a></li>
+                    <li><a href="#">MANAGE DELIVERIES</a></li>
+                    <li><a href="#">ORDERS</a></li>
+                    <li><a href="#">PAYMENTS</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h5>RESOURCES</h5>
+                <ul>
+                    <li><a href="#">FREE EBOOKS</a></li>
+                    <li><a href="#">DEVELOPMENT TUTORIAL</a></li>
+                    <li><a href="#">HOW TO - BLOG</a></li>
+                    <li><a href="#">YOUTUBE PLAYLIST</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; VEXILO 2025 - All rights reserved</p>
+            <div class="payment-methods">
+                <img class="payment-icon" src="https://www.pngmart.com/files/22/Mastercard-Logo-PNG-HD.png" alt="Mastercard">
+                <img class="payment-icon" src="https://iconape.com/wp-content/uploads/1/12/Apple-Pay-Logo-0%D9%A4.png" alt="Apple Pay">
+                <img class="payment-icon" src="https://static.vecteezy.com/system/resources/previews/020/975/567/original/visa-logo-visa-icon-transparent-free-png.png" alt="Visa">
+                <img class="payment-icon" src="https://static.vecteezy.com/system/resources/previews/021/672/629/original/google-pay-logo-transparent-free-png.png" alt="Google Pay">
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

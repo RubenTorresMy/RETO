@@ -1,0 +1,29 @@
+
+> backend-lonas@1.0.0 start
+> node dist/server.js
+
+🚩 Servidor VEXILO escuchando en http://localhost:3000
+📁 Frontend servido desde: C:\Users\S2-PC00\Downloads\reto (2)\reto\frontend\public
+No se pudo sincronizar el catalogo de banderas; se usara el catalogo virtual. error: value too long for type character varying(40)
+    at C:\Users\S2-PC00\Downloads\reto (2)\reto\backend\node_modules\pg-pool\index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at async ensureFlagCatalog (file:///C:/Users/S2-PC00/Downloads/reto%20(2)/reto/backend/dist/server.js:99:13)
+    at async file:///C:/Users/S2-PC00/Downloads/reto%20(2)/reto/backend/dist/server.js:975:13 {
+  length: 98,
+  severity: 'ERROR',
+  code: '22001',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'varchar.c',
+  line: '637',
+  routine: 'varchar'
+}

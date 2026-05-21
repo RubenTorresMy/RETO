@@ -1,0 +1,21 @@
+VEXILO - Documento de riesgos laborales
+
+1. Objetivo
+Este documento resume las medidas basicas de prevencion para el trabajo en oficina, taller, manipulacion de materiales y preparacion de pedidos.
+
+2. Riesgos principales
+- Cortes o golpes durante la manipulacion de soportes, embalajes y herramientas.
+- Sobrecargas por posturas mantenidas o levantamiento incorrecto de cargas.
+- Fatiga visual por uso continuado de pantallas.
+- Resbalones, tropiezos y caidas por zonas de paso ocupadas.
+- Riesgos electricos por uso inadecuado de equipos.
+
+3. Medidas preventivas
+- Mantener zonas de paso despejadas y limpias.
+- Usar guantes, proteccion ocular o equipos de proteccion cuando la tarea lo requiera.
+- Levantar cargas flexionando rodillas y manteniendo la espalda recta.
+- Revisar cables y enchufes antes de usar equipos.
+- Realizar pausas visuales y cambios de postura.
+
+4. Actuacion ante incidentes
+Comunicar cualquier accidente o situacion insegura al responsable directo y al comite de seguridad. En caso de urgencia, avisar a emergencias y no manipular equipos danados.

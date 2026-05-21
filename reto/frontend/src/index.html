@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VEXILO - Custom Flags</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-top">
+            <p class="promo-text">SIGN UP AND GET 10% OFF YOUR FIRST ORDER <a href="#newsletter">Subscribe here</a></p>
+            <button class="close-promo" aria-label="Close promotion">×</button>
+        </div>
+        <nav class="navbar">
+            <a href="index.html" class="logo" aria-label="VEXILO Home">
+                <img src="https://i.ibb.co/hxvWQ0f1/imagen-logo-sin-nombre.png" alt="VEXILO Logo" class="logo-icon">
+                <span class="logo-text">VEXILO</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">HOME</a></li>
+                <li><a href="catalog.html" class="nav-link">CATALOG</a></li>
+                <li><a href="ai.html" class="nav-link">AI</a></li>
+                <li><a href="product-details.html#customization" class="nav-link">CUSTOMIZE</a></li>
+            </ul>
+            <div class="nav-right">
+                <input type="text" placeholder="Search for products..." class="search-input" aria-label="Search for products">
+                <button class="cart-btn" aria-label="Cart"><img src="https://img.freepik.com/vector-premium/icono-web-carrito-compras-vector-minimalista-plataformas-comercio-electronico-tiendas-linea-simbolo-carrito-simple_1231005-1491.jpg?semt=ais_hybrid&w=740&q=80" alt="Cart"></button>
+                <div class="profile-menu">
+                    <button class="profile-btn" aria-label="Profile"><img src="https://static.vecteezy.com/system/resources/previews/058/235/304/non_2x/minimalist-user-profile-icon-for-apps-and-websites-free-vector.jpg" alt="Profile"></button>
+                    <div class="profile-dropdown" id="profileDropdown">
+                        <div class="dropdown-user-info" id="dropdownUserInfo" style="display: none;">
+                            <p id="userNameDisplay"></p>
+                            <p id="userEmailDisplay"></p>
+                            <hr>
+                        </div>
+                        <a href="profile.html" class="dropdown-item" id="profileLink" style="display: none;">My Profile</a>
+                        <a href="admin.html" class="dropdown-item" id="intranetLink" style="display: none;">Intranet</a>
+                        <a href="my-orders.html" class="dropdown-item" id="ordersLink" style="display: none;">My Orders</a>
+                        <a href="my-designs.html" class="dropdown-item" id="designsLink" style="display: none;">My Designs</a>
+                        <a href="#logout" class="dropdown-item" id="logoutBtn" style="display: none;">Log Out</a>
+                        <a href="login.html" class="dropdown-item" id="loginLink">Log In</a>
+                        <a href="signup.html" class="dropdown-item" id="signupLink">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-image">
+            <img src="assets/vexilo-menu-hero.png" alt="Banderas premium VEXILO" class="hero-main-image">
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">WHERE EVERY FLAG TELLS A STORY.</h1>
+            <p class="hero-subtitle">DISCOVER YOUR OWN CUSTOM FLAG IN OUR CATALOG — OR CREATE YOUR OWN, DESIGNED TO BRING OUT YOUR INDIVIDUALITY AND CATER TO YOUR UNIQUE STYLE.</p>
+            <button class="btn btn-primary" data-action="create-flag">Create now</button>
+        </div>
+        <div class="hero-ad-slot" aria-label="Espacio para video de campaña">
+            <span>ESPACIO RESERVADO</span>
+            <strong>Video de campaña</strong>
+            <p>Aquí irá el video principal de la página</p>
+        </div>
+
+        <div class="hero-stats">
+            <div class="stat">
+                <span class="stat-number">200+</span>
+                <span class="stat-label">FLAG TEMPLATES</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">2,000+</span>
+                <span class="stat-label">USER CREATED DESIGNS</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">30,000+</span>
+                <span class="stat-label">HAPPY CUSTOMERS</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Sold Flags -->
+    <section class="section" id="best-sold">
+        <h2 class="section-title">Best sold flags</h2>
+        <div class="products-grid" id="best-sold-grid">
+            <!-- Products will load here via JavaScript -->
+        </div>
+    </section>
+
+    <!-- User-Created Favorites -->
+    <section class="section" id="user-favorites">
+        <h2 class="section-title">Community Favorites</h2>
+        <div class="products-grid" id="favorites-grid">
+            <!-- Products will load here via JavaScript -->
+        </div>
+    </section>
+
+    <!-- Browse by Style -->
+    <section class="section" id="browse-style">
+        <h2 class="section-title">BROWSE BY STYLE</h2>
+        <div class="styles-grid">
+            <div class="style-card">
+                <div class="style-image">
+                    <img src="assets/imagen business.png" alt="Business flags">
+                </div>
+                <h3>Business</h3>
+            </div>
+            <div class="style-card">
+                <div class="style-image">
+                    <img src="assets/imagen outdoor.png" alt="Outdoor flags">
+                </div>
+                <h3>Outdoor</h3>
+            </div>
+            <div class="style-card">
+                <div class="style-image">
+                    <img src="assets/imagen indoor.png" alt="Indoor flags">
+                </div>
+                <h3>Indoor</h3>
+            </div>
+            <div class="style-card">
+                <div class="style-image">
+                    <img src="assets/iamgen eventos.png" alt="Events flags">
+                </div>
+                <h3>Events</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Happy Customers -->
+    <section class="section" id="testimonials">
+        <h2 class="section-title">OUR HAPPY CUSTOMERS</h2>
+        <div class="testimonials-container">
+            <button class="carousel-btn prev" data-carousel="testimonials">❮</button>
+            <div class="testimonials-grid" id="testimonials-grid">
+                <!-- Los testimonios se cargarán aquí con JavaScript -->
+            </div>
+            <button class="carousel-btn next" data-carousel="testimonials">❯</button>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter-section" id="newsletter">
+        <div class="newsletter-box">
+            <div class="newsletter-copy">
+                <h2>STAY UP TO DATE ABOUT OUR LATEST OFFERS</h2>
+            </div>
+            <form class="newsletter-form" action="#" method="post">
+                <label class="newsletter-field">
+                    <span class="newsletter-icon">✉️</span>
+                    <input type="email" placeholder="Enter your e-mail" class="newsletter-input" aria-label="Email address">
+                </label>
+                <button class="btn btn-secondary newsletter-submit" type="submit">Subscribe to Newsletter</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>VEXILO</h4>
+                <p>WE THINK DESIGNS THAT SUITS YOUR VIBE. YOUR STYLE DEFINES WHICH PRODUCTS ARE FOR YOU.</p>
+                <div class="social-links">
+                    <img src="https://img.freepik.com/vector-gratis/twitter-nuevo-logotipo-2023-x-vector-fondo-blanco_1017-45422.jpg?semt=ais_hybrid&w=740&q=80" alt="Visa" class="payment-icon">
+                    <img src="https://cdn-icons-png.flaticon.com/512/104/104643.png" alt="Visa" class="payment-icon">
+                    <img src="https://img.freepik.com/psd-gratis/diseno-logotipo-redes-sociales_23-2151299465.jpg" alt="Visa" class="payment-icon">
+                    <img src="https://cdn-icons-png.flaticon.com/256/25/25231.png" alt="Visa" class="payment-icon">
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h5>COMPANY</h5>
+                <ul>
+                    <li><a href="#about">ABOUT</a></li>
+                    <li><a href="#features">FEATURES</a></li>
+                    <li><a href="#works">WORKS</a></li>
+                    <li><a href="#career">CAREER</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h5>HELP</h5>
+                <ul>
+                    <li><a href="#support">CUSTOMER SUPPORT</a></li>
+                    <li><a href="#delivery">DELIVERY DETAILS</a></li>
+                    <li><a href="#terms">TERMS & CONDITIONS</a></li>
+                    <li><a href="#privacy">PRIVACY POLICY</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h5>FAQ</h5>
+                <ul>
+                    <li><a href="#account">ACCOUNT</a></li>
+                    <li><a href="#manage">MANAGE DELIVERIES</a></li>
+                    <li><a href="#orders">ORDERS</a></li>
+                    <li><a href="#payments">PAYMENTS</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h5>RESOURCES</h5>
+                <ul>
+                    <li><a href="#tricks">BEST HACKS</a></li>
+                    <li><a href="#tutorial">DEVELOPMENT TUTORIAL</a></li>
+                    <li><a href="#blog">HOW TO - BLOG</a></li>
+                    <li><a href="#youtube">YOUTUBE PLAYLIST</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; VEXILO 2025 - All rights reserved</p>
+            <div class="payment-methods">
+                <img src="https://www.pngmart.com/files/22/Mastercard-Logo-PNG-HD.png" alt="Mastercard" class="payment-icon">
+                <img src="https://iconape.com/wp-content/uploads/1/12/Apple-Pay-Logo-0%D9%A4.png" alt="Apple Pay" class="payment-icon">
+                <img src="https://static.vecteezy.com/system/resources/previews/020/975/567/original/visa-logo-visa-icon-transparent-free-png.png" alt="Visa" class="payment-icon">
+                <img src="https://static.vecteezy.com/system/resources/previews/021/672/629/original/google-pay-logo-transparent-free-png.png" alt="Google Pay" class="payment-icon">
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Studio - VEXILO</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-top">
+            <p class="promo-text">SIGN UP AND GET 10% OFF YOUR FIRST ORDER <a href="#newsletter">Subscribe here</a></p>
+            <button class="close-promo" aria-label="Close promotion">x</button>
+        </div>
+        <nav class="navbar">
+            <a href="index.html" class="logo" aria-label="VEXILO Home">
+                <img src="https://i.ibb.co/hxvWQ0f1/imagen-logo-sin-nombre.png" alt="VEXILO Logo" class="logo-icon">
+                <span class="logo-text">VEXILO</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">HOME</a></li>
+                <li><a href="catalog.html" class="nav-link">CATALOG</a></li>
+                <li><a href="ai.html" class="nav-link">AI</a></li>
+                <li><a href="product-details.html#customization" class="nav-link">CUSTOMIZE</a></li>
+            </ul>
+            <div class="nav-right">
+                <input type="text" placeholder="Search for products..." class="search-input" aria-label="Search for products">
+                <button class="cart-btn" aria-label="Cart"><img src="https://img.freepik.com/vector-premium/icono-web-carrito-compras-vector-minimalista-plataformas-comercio-electronico-tiendas-linea-simbolo-carrito-simple_1231005-1491.jpg?semt=ais_hybrid&w=740&q=80" alt="Cart"></button>
+                <div class="profile-menu">
+                    <button class="profile-btn" aria-label="Profile"><img src="https://static.vecteezy.com/system/resources/previews/058/235/304/non_2x/minimalist-user-profile-icon-for-apps-and-websites-free-vector.jpg" alt="Profile"></button>
+                    <div class="profile-dropdown" id="profileDropdown">
+                        <div class="dropdown-user-info" id="dropdownUserInfo" style="display: none;">
+                            <p id="userNameDisplay"></p>
+                            <p id="userEmailDisplay"></p>
+                            <hr>
+                        </div>
+                        <a href="profile.html" class="dropdown-item" id="profileLink" style="display: none;">My Profile</a>
+                        <a href="admin.html" class="dropdown-item" id="intranetLink" style="display: none;">Intranet</a>
+                        <a href="my-orders.html" class="dropdown-item" id="ordersLink" style="display: none;">My Orders</a>
+                        <a href="my-designs.html" class="dropdown-item" id="designsLink" style="display: none;">My Designs</a>
+                        <a href="#logout" class="dropdown-item" id="logoutBtn" style="display: none;">Log Out</a>
+                        <a href="login.html" class="dropdown-item" id="loginLink">Log In</a>
+                        <a href="signup.html" class="dropdown-item" id="signupLink">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="product-page design-studio-page">
+        <section class="studio-hero" id="customization">
+            <div class="studio-copy">
+                <span class="studio-kicker">Design studio</span>
+                <h1>Customize your flag</h1>
+                <p>Work directly on the design area, upload references, draw over the base image and save the version you want to print.</p>
+            </div>
+            <div class="studio-selected-item">
+                <div class="studio-selected-preview">
+                    <img id="selectedItemPreview" src="https://via.placeholder.com/420x260?text=Blank+Canvas" alt="Blank canvas">
+                </div>
+                <div class="studio-selected-info">
+                    <span id="workspaceItemLabel" class="studio-chip">Blank project</span>
+                    <h2 id="product-title">Blank design</h2>
+                    <p id="product-description">Start from a clean canvas or load a product or design from the catalog when you want a base reference.</p>
+                    <div class="studio-price-row">
+                        <strong id="product-price">$0.00</strong>
+                        <span class="customize-note">create your own design</span>
+                    </div>
+                    <div class="product-meta studio-meta">
+                        <div>
+                            <label for="size-selection">Choose Size</label>
+                            <div class="size-options" id="size-selection">
+                                <button type="button" class="size-btn">Small</button>
+                                <button type="button" class="size-btn">Medium</button>
+                                <button type="button" class="size-btn active">Large</button>
+                                <button type="button" class="size-btn">Personalizable</button>
+                            </div>
+                            <div class="custom-size-fields" id="customSizeFields" hidden>
+                                <label for="customWidth">Ancho preferido</label>
+                                <input type="number" id="customWidth" min="1" placeholder="120" aria-label="Ancho personalizado en centimetros">
+                                <label for="customHeight">Largo preferido</label>
+                                <input type="number" id="customHeight" min="1" placeholder="80" aria-label="Largo personalizado en centimetros">
+                                <span>Medidas en centimetros</span>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="quantity">Quantity</label>
+                            <div class="quantity-control">
+                                <button type="button" class="qty-btn" aria-label="Decrease quantity">-</button>
+                                <input id="quantity" type="number" value="1" min="1" class="qty-input" aria-label="Quantity">
+                                <button type="button" class="qty-btn" aria-label="Increase quantity">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="studio-actions">
+                        <button class="btn btn-primary btn-add-cart" type="button">Add to Cart</button>
+                        <button class="btn btn-secondary" id="likeDetailBtn" type="button">Like</button>
+                        <button class="btn btn-secondary" id="favoriteDetailBtn" type="button">Add to favorites</button>
+                        <button class="btn report-flag-btn" id="reportFlagBtn" type="button" aria-label="Report flag">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M5 21V4.6c0-.9.7-1.6 1.6-1.6h9.2c.5 0 1 .2 1.3.6l1.4 1.7c.4.5.4 1.2 0 1.7l-1.4 1.7c-.3.4-.8.6-1.3.6H7.2V21H5Z"/>
+                            </svg>
+                            <span>Report</span>
+                        </button>
+                        <button class="btn admin-delete-flag-btn" id="adminDeleteFlagBtn" type="button" hidden>Eliminar bandera</button>
+                    </div>
+                    <div class="creator-rewards-card" id="creatorRewardsCard" hidden>
+                        <span>Creator rewards</span>
+                        <strong id="creatorPointsValue">0 pts</strong>
+                        <small>Likes on your public flags unlock discounts.</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="customization-section studio-workspace">
+            <h2>Design your flag</h2>
+            <div class="canvas-container studio-layout">
+                <div class="canvas-area">
+                    <canvas id="flagCanvas" width="800" height="400" aria-label="Drawing canvas"></canvas>
+                </div>
+                <div class="studio-lower-controls">
+                    <div class="tool-section studio-image-panel">
+                        <h3>Image</h3>
+                        <input type="file" id="imageUpload" accept="image/*" style="display:none;">
+                        <button type="button" id="uploadImageBtn" class="action-btn">Upload image</button>
+                        <div class="image-size-control">
+                            <label for="imageScale">Size</label>
+                            <input type="range" id="imageScale" min="20" max="220" value="100" disabled aria-label="Uploaded image size">
+                        </div>
+                    </div>
+                    <div class="tool-section studio-actions-panel">
+                        <h3>Actions</h3>
+                        <div class="studio-actions-grid">
+                            <button type="button" id="undoCanvas" class="action-btn">Undo</button>
+                            <button type="button" id="clearCanvas" class="action-btn">Clear</button>
+                            <button type="button" id="downloadDesign" class="action-btn">Download</button>
+                            <button type="button" id="saveDesign" class="action-btn primary">Save design</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="studio-right-stack">
+                    <div class="tool-section studio-tools-panel">
+                        <h3>Tools</h3>
+                        <div class="tools-grid">
+                            <button type="button" class="tool-icon active" data-tool="brush" title="Brush" aria-label="Brush">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 4.2 19.8 9l-8.6 8.6c-1.4 1.4-3.5 1.7-5.2.8l-.5-.3.3-.5c.9-1.7.6-3.8-.8-5.2l9.7-8.2Zm1.4-1.5c.8-.7 2-.7 2.8.1l2.3 2.3c.8.8.8 2 0 2.8l-.4.4-5.1-4.9.4-.7ZM4.8 15.3c.7.9 1 2 .8 3.1-1 .2-2 .5-3.1 1.1.5-1.5 1.1-2.9 2.3-4.2Z"/></svg>
+                            </button>
+                            <button type="button" class="tool-icon" data-tool="eraser" title="Eraser" aria-label="Eraser">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 3.8 21 10.3c.8.8.8 2 0 2.8l-6.3 6.3c-.4.4-.9.6-1.4.6H4.8L2.6 17.8c-.8-.8-.8-2 0-2.8l9.1-11.2c.8-.8 2-.8 2.8 0ZM6 18h6.8l3.1-3.1-6.5-6.5L4 15.1c-.2.2-.2.5 0 .7L6 18Z"/></svg>
+                            </button>
+                            <button type="button" class="tool-icon" data-tool="line" title="Line" aria-label="Line">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20a1 1 0 0 1-.7-1.7l14-14a1 1 0 1 1 1.4 1.4l-14 14A1 1 0 0 1 5 20Z"/></svg>
+                            </button>
+                            <button type="button" class="tool-icon" data-tool="rect" title="Rectangle" aria-label="Rectangle">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5h14v14H5V5Zm2 2v10h10V7H7Z"/></svg>
+                            </button>
+                            <button type="button" class="tool-icon" data-tool="circle" title="Circle" aria-label="Circle">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4a8 8 0 1 1 0 16 8 8 0 0 1 0-16Zm0 2a6 6 0 1 0 0 12 6 6 0 0 0 0-12Z"/></svg>
+                            </button>
+                            <button type="button" class="tool-icon" data-tool="fill" title="Fill" aria-label="Fill">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m13.4 3.2 7.4 7.4c.8.8.8 2 0 2.8L14 20.2c-.8.8-2 .8-2.8 0L3.8 12.8c-.8-.8-.8-2 0-2.8l5-5-1.2-1.2 1.4-1.4 4.4 4.4-1.4 1.4-1.8-1.8L5.2 11.4h14.2l-7.4-7.4 1.4-.8ZM20 17.5s2 2.2 2 3.5a2 2 0 1 1-4 0c0-1.3 2-3.5 2-3.5Z"/></svg>
+                            </button>
+                            <button type="button" class="tool-icon" data-tool="text" title="Text" aria-label="Text">
+                                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v3h-2V7h-5v12h2v2H9v-2h2V7H6v1H4V5Z"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="tool-section studio-text-panel" id="textToolPanel" hidden>
+                        <h3>Text</h3>
+                        <input type="text" id="textInput" placeholder="Enter text" class="text-input" aria-label="Text to add">
+                        <div>
+                            <label for="fontSize">Size</label>
+                            <input type="range" id="fontSize" min="10" max="100" value="30" aria-label="Font size">
+                            <span id="fontSizeDisplay">30px</span>
+                        </div>
+                        <div>
+                            <label for="fontStyle">Style</label>
+                            <select id="fontStyle" aria-label="Font style">
+                                <option value="normal">Normal</option>
+                                <option value="italic">Italic</option>
+                                <option value="bold">Bold</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="tool-section studio-color-panel">
+                        <h3>Color</h3>
+                        <div class="color-wheel-wrapper">
+                            <canvas id="colorWheel" width="180" height="180"></canvas>
+                            <div id="colorPreview" class="color-preview" style="background:#000000;"></div>
+                        </div>
+                        <input type="color" id="colorPicker" value="#000000" aria-label="Select color" style="display:none;">
+                        <div class="color-hex-input">
+                            <label for="hexInput">HEX</label>
+                            <input type="text" id="hexInput" value="#000000" maxlength="7" class="hex-input">
+                        </div>
+                        <div class="quick-colors">
+                            <button type="button" class="quick-color" style="background-color: #000000;" title="Black"></button>
+                            <button type="button" class="quick-color" style="background-color: #ff0000;" title="Red"></button>
+                            <button type="button" class="quick-color" style="background-color: #00b050;" title="Green"></button>
+                            <button type="button" class="quick-color" style="background-color: #0070c0;" title="Blue"></button>
+                            <button type="button" class="quick-color" style="background-color: #ffb900;" title="Yellow"></button>
+                            <button type="button" class="quick-color" style="background-color: #ffffff; border: 1px solid #ddd;" title="White"></button>
+                        </div>
+                    </div>
+                    <div class="tool-section studio-brush-panel">
+                        <h3>Brush size</h3>
+                        <input type="range" id="brushSize" min="1" max="50" value="3" aria-label="Brush size">
+                        <span id="sizeDisplay">3 px</span>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal para guardar diseño -->
+    <div id="saveDesignModal" class="modal" hidden>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Save your design</h2>
+                <button class="modal-close" aria-label="Close modal">&times;</button>
+            </div>
+            <form id="saveDesignForm" class="modal-form">
+                <div class="form-group">
+                    <label for="designNameInput">Design name *</label>
+                    <input type="text" id="designNameInput" name="name" placeholder="My Flag #1" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="publishCheckbox" name="publish">
+                        <span>Publish this flag so other users can see and use it</span>
+                    </label>
+                </div>
+
+                <div id="publishOptions" class="publish-options" hidden>
+                    <div class="form-group">
+                        <label for="publicNameInput">Public flag name *</label>
+                        <input type="text" id="publicNameInput" name="publicName" placeholder="Community flag name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="publicDescriptionInput">Short description</label>
+                        <textarea id="publicDescriptionInput" name="publicDescription" placeholder="Community flag ready to customize" rows="3"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="publicTagsInput">Tags (separated by commas)</label>
+                        <input type="text" id="publicTagsInput" name="publicTags" placeholder="flag, custom, vexilo">
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary modal-cancel">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save design</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notificación de éxito -->
+    <div id="successNotification" class="success-notification" hidden>
+        <div class="notification-content">
+            <span class="notification-icon">✓</span>
+            <div class="notification-text">
+                <strong id="successTitle">Success!</strong>
+                <p id="successMessage">Your design has been saved</p>
+            </div>
+            <button class="notification-close" aria-label="Close notification">&times;</button>
+        </div>
+    </div>
+
+    <div id="reportFlagModal" class="modal report-modal" hidden>
+        <div class="modal-content report-modal-content">
+            <div class="modal-header">
+                <div>
+                    <span class="report-modal-kicker">Flag report</span>
+                    <h2 id="reportFlagTitle">Selected flag</h2>
+                </div>
+                <button class="modal-close" type="button" data-report-close aria-label="Close report">&times;</button>
+            </div>
+            <form id="reportFlagForm" class="modal-form">
+                <div class="form-group">
+                    <label for="reportReason">Reason</label>
+                    <select id="reportReason" required>
+                        <option value="Contenido inapropiado">Contenido inapropiado</option>
+                        <option value="Derechos de autor">Derechos de autor</option>
+                        <option value="Imagen ofensiva">Imagen ofensiva</option>
+                        <option value="Spam o duplicado">Spam o duplicado</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="reportComment">Comment</label>
+                    <textarea id="reportComment" rows="4" placeholder="Add useful context for the review team"></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" data-report-close>Cancel</button>
+                    <button type="submit" class="btn report-submit-btn">Send report</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>VEXILO</h4>
+                <p>WE THINK DESIGNS THAT SUIT YOUR STYLE AND WHICH YOU'RE PROUD TO WEAR.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; VEXILO 2025 - All rights reserved</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Designs - VEXILO</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-top">
+            <p class="promo-text">SIGN UP AND GET 10% OFF YOUR FIRST ORDER <a href="#newsletter">Subscribe here</a></p>
+            <button class="close-promo" aria-label="Close promotion">x</button>
+        </div>
+        <nav class="navbar">
+            <a href="index.html" class="logo" aria-label="VEXILO Home">
+                <img src="https://i.ibb.co/hxvWQ0f1/imagen-logo-sin-nombre.png" alt="VEXILO Logo" class="logo-icon">
+                <span class="logo-text">VEXILO</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">HOME</a></li>
+                <li><a href="catalog.html" class="nav-link">CATALOG</a></li>
+                <li><a href="ai.html" class="nav-link">AI</a></li>
+                <li><a href="product-details.html#customization" class="nav-link">CUSTOMIZE</a></li>
+            </ul>
+            <div class="nav-right">
+                <input type="text" placeholder="Search for products..." class="search-input" aria-label="Search for products">
+                <button class="cart-btn" aria-label="Cart"><img src="https://img.freepik.com/vector-premium/icono-web-carrito-compras-vector-minimalista-plataformas-comercio-electronico-tiendas-linea-simbolo-carrito-simple_1231005-1491.jpg?semt=ais_hybrid&w=740&q=80" alt="Cart"></button>
+                <div class="profile-menu">
+                    <button class="profile-btn" aria-label="Profile"><img src="https://static.vecteezy.com/system/resources/previews/058/235/304/non_2x/minimalist-user-profile-icon-for-apps-and-websites-free-vector.jpg" alt="Profile"></button>
+                    <div class="profile-dropdown" id="profileDropdown">
+                        <div class="dropdown-user-info" id="dropdownUserInfo" style="display: none;">
+                            <p id="userNameDisplay"></p>
+                            <p id="userEmailDisplay"></p>
+                            <hr>
+                        </div>
+                        <a href="profile.html" class="dropdown-item" id="profileLink" style="display: none;">My Profile</a>
+                        <a href="admin.html" class="dropdown-item" id="intranetLink" style="display: none;">Intranet</a>
+                        <a href="my-orders.html" class="dropdown-item" id="ordersLink" style="display: none;">My Orders</a>
+                        <a href="my-designs.html" class="dropdown-item" id="designsLink" style="display: none;">My Designs</a>
+                        <a href="#logout" class="dropdown-item" id="logoutBtn" style="display: none;">Log Out</a>
+                        <a href="login.html" class="dropdown-item" id="loginLink">Log In</a>
+                        <a href="signup.html" class="dropdown-item" id="signupLink">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section style="padding: 80px 40px; max-width: 1200px; margin: 0 auto;">
+        <h1 style="font-size: 32px; margin-bottom: 40px;">My Designs</h1>
+        <div id="myDesignsGrid" class="products-grid"></div>
+        <div id="myDesignsEmpty" style="background: #f5f5f5; padding: 30px; border-radius: 8px; text-align: center;">
+            <p style="color: #666; font-size: 16px;">You don't have any saved designs yet.</p>
+            <p style="margin-top: 20px;">
+                <a href="product-details.html#customization" style="color: #0066cc; text-decoration: none; font-weight: 600;">Create your first design &rarr;</a>
+            </p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>VEXILO</h3>
+                <p>Where every flag tells a story.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 VEXILO. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            if (!isUserLoggedIn() || !localStorage.getItem('token')) {
+                window.location.href = 'login.html';
+                return;
+            }
+
+            const result = await api.getProfileDesigns();
+            const grid = document.getElementById('myDesignsGrid');
+            const empty = document.getElementById('myDesignsEmpty');
+            const designs = result && result.success ? result.data : [];
+
+            if (!designs.length) {
+                grid.innerHTML = '';
+                empty.style.display = 'block';
+                return;
+            }
+
+            empty.style.display = 'none';
+            designs.forEach((design) => {
+                grid.appendChild(createProductCard(design));
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intranet - VEXILO</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-top">
+            <p class="promo-text">INTRANET VEXILO - Acceso exclusivo para trabajadores</p>
+            <button class="close-promo" aria-label="Cerrar aviso">x</button>
+        </div>
+        <nav class="navbar">
+            <a href="index.html" class="logo" aria-label="VEXILO Home">
+                <img src="https://i.ibb.co/hxvWQ0f1/imagen-logo-sin-nombre.png" alt="VEXILO Logo" class="logo-icon">
+                <span class="logo-text">VEXILO</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">HOME</a></li>
+                <li><a href="catalog.html" class="nav-link">CATALOG</a></li>
+                <li><a href="ai.html" class="nav-link">AI</a></li>
+                <li><a href="product-details.html#customization" class="nav-link">CUSTOMIZE</a></li>
+            </ul>
+            <div class="nav-right">
+                <input type="text" placeholder="Search for products..." class="search-input" aria-label="Search for products">
+                <button class="cart-btn" aria-label="Cart"><img src="https://img.freepik.com/vector-premium/icono-web-carrito-compras-vector-minimalista-plataformas-comercio-electronico-tiendas-linea-simbolo-carrito-simple_1231005-1491.jpg?semt=ais_hybrid&w=740&q=80" alt="Cart"></button>
+                <div class="profile-menu">
+                    <button class="profile-btn" aria-label="Profile"><img src="https://static.vecteezy.com/system/resources/previews/058/235/304/non_2x/minimalist-user-profile-icon-for-apps-and-websites-free-vector.jpg" alt="Profile"></button>
+                    <div class="profile-dropdown" id="profileDropdown">
+                        <div class="dropdown-user-info" id="dropdownUserInfo" style="display: none;">
+                            <p id="userNameDisplay"></p>
+                            <p id="userEmailDisplay"></p>
+                            <hr>
+                        </div>
+                        <a href="profile.html" class="dropdown-item" id="profileLink" style="display: none;">My Profile</a>
+                        <a href="admin.html" class="dropdown-item" id="intranetLink" style="display: none;">Intranet</a>
+                        <a href="my-orders.html" class="dropdown-item" id="ordersLink" style="display: none;">My Orders</a>
+                        <a href="my-designs.html" class="dropdown-item" id="designsLink" style="display: none;">My Designs</a>
+                        <a href="#logout" class="dropdown-item" id="logoutBtn" style="display: none;">Log Out</a>
+                        <a href="login.html" class="dropdown-item" id="loginLink">Log In</a>
+                        <a href="signup.html" class="dropdown-item" id="signupLink">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="intranet-page dashboard-app" id="intranetContent" hidden>
+        <aside class="dashboard-sidebar" aria-label="Navegación de la intranet">
+            <div class="sidebar-brand">
+                <img src="https://i.ibb.co/hxvWQ0f1/imagen-logo-sin-nombre.png" alt="VEXILO Logo" class="sidebar-logo-icon">
+                <div>
+                    <h2>VEXILO</h2>
+                    <p>Intranet profesional</p>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <a class="sidebar-link active" href="#committee">Comité</a>
+                <a class="sidebar-link" href="#workerInfo">Derechos</a>
+                <a class="sidebar-link" href="#documents">Documentos</a>
+                <a class="sidebar-link" href="#agreements">Noticias</a>
+                <a class="sidebar-link" href="#dailyOps">Check-in</a>
+                <a class="sidebar-link" href="#reportesSection">Control de Reportes</a>
+                <a class="sidebar-link" href="#moderationSection">Moderación</a>
+                <a class="sidebar-link" href="#analyticsSection">Analíticas</a>
+            </nav>
+        </aside>
+        <div class="dashboard-main">
+        <section class="page-panel" id="dailyOps">
+            <section class="intranet-part-heading no-number">
+                <div>
+                    <h2>Operativa diaria</h2>
+                    <p>Fichajes, calendario, objetivos, actividad reciente y rendimiento semanal.</p>
+                </div>
+            </section>
+
+            <section class="intranet-tools" aria-label="Herramientas principales">
+                <article class="tool-tile">
+                    <span class="tool-label">Fichaje</span>
+                    <h2 id="clockStatus">Sin fichaje activo</h2>
+                    <p id="clockMessage">Registra la entrada o salida de tu jornada.</p>
+                    <button class="btn btn-primary" type="button" id="clockButton">Fichar entrada</button>
+                </article>
+                <article class="tool-tile">
+                    <span class="tool-label">Calendario</span>
+                    <div class="calendar-control-row">
+                        <button type="button" id="calendarPrev" aria-label="Mes anterior">&lsaquo;</button>
+                        <h2 id="calendarTitle">Mayo 2026</h2>
+                        <button type="button" id="calendarNext" aria-label="Mes siguiente">&rsaquo;</button>
+                    </div>
+                    <button class="calendar-today-button" type="button" id="calendarToday">Hoy</button>
+                    <div class="mini-calendar" id="miniCalendar" aria-label="Calendario laboral">
+                    </div>
+                </article>
+                <article class="tool-tile">
+                    <span class="tool-label">Objetivos 2026</span>
+                    <h2>Estabilidad y transparencia</h2>
+                    <p>Prioridad en contratos estables, promoción interna y protocolos claros para cambios contractuales.</p>
+                </article>
+            </section>
+
+            <section class="intranet-ops-grid" aria-label="Actividad y organización">
+                <article class="ops-card">
+                    <div class="section-heading-row compact">
+                        <div>
+                            <span class="intranet-kicker">Actividad reciente</span>
+                            <h2>Check-ins y check-outs</h2>
+                        </div>
+                    </div>
+                    <ul class="activity-list" id="clockActivity">
+                        <li><strong>08:54</strong><span>Entrada registrada - Equipo producción</span></li>
+                        <li><strong>10:20</strong><span>Revisión de pedidos premium</span></li>
+                        <li><strong>13:36</strong><span>Salida pausa comida - Taller</span></li>
+                    </ul>
+                </article>
+                <article class="ops-card">
+                    <div class="section-heading-row compact">
+                        <div>
+                            <span class="intranet-kicker">Calendario interno</span>
+                            <h2>Eventos clave</h2>
+                        </div>
+                    </div>
+                    <div class="calendar-agenda">
+                        <div><strong>18 May</strong><span>Entrega pedido Estados Unidos</span></div>
+                        <div><strong>21 May</strong><span>Reunión comité de empresa</span></div>
+                        <div><strong>24 May</strong><span>Revisión objetivos semanales</span></div>
+                        <div><strong>28 May</strong><span>Recordatorio formación interna</span></div>
+                    </div>
+                </article>
+                <article class="ops-card performance-card">
+                    <div class="section-heading-row compact">
+                        <div>
+                            <span class="intranet-kicker">Rendimiento semanal</span>
+                            <h2>Objetivo 82%</h2>
+                        </div>
+                    </div>
+                    <div class="bar-chart" aria-label="Gráfica de rendimiento semanal">
+                        <span style="height: 56%"></span>
+                        <span style="height: 72%"></span>
+                        <span style="height: 64%"></span>
+                        <span style="height: 88%"></span>
+                        <span style="height: 82%"></span>
+                    </div>
+                </article>
+            </section>
+        </section>
+
+        <section class="dashboard-report-section page-panel" id="reportesSection">
+            <div class="section-heading-row">
+                <div>
+                    <span class="intranet-kicker">Control de Reportes</span>
+                    <h2>Gestión de banderas públicas</h2>
+                </div>
+                <p>Filtra, revisa y gestiona los reportes con prioridad visual y acciones rápidas de moderación.</p>
+            </div>
+            <div class="report-toolbar">
+                <div class="report-filters">
+                    <label>
+                        Buscar
+                        <input type="search" id="reportSearch" placeholder="Buscar por bandera, usuario o motivo">
+                    </label>
+                    <label>
+                        Estado
+                        <select id="reportStatusFilter">
+                            <option value="all">Todos</option>
+                            <option value="Pendiente">Pendiente</option>
+                            <option value="En revisión">En revisión</option>
+                            <option value="Resuelto">Resuelto</option>
+                            <option value="Rechazado">Rechazado</option>
+                        </select>
+                    </label>
+                    <label>
+                        Prioridad
+                        <select id="reportPriorityFilter">
+                            <option value="all">Todas</option>
+                            <option value="Alta">Alta</option>
+                            <option value="Media">Media</option>
+                            <option value="Baja">Baja</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+            <div class="report-grid">
+                <div class="report-table-card">
+                    <table class="report-table" aria-label="Tabla de reportes de banderas">
+                        <thead>
+                            <tr>
+                                <th>Reporte</th>
+                                <th>Usuario</th>
+                                <th>Motivo</th>
+                                <th>Estado</th>
+                                <th>Prioridad</th>
+                                <th>Fecha</th>
+                            </tr>
+                        </thead>
+                        <tbody id="reportTableBody"></tbody>
+                    </table>
+                </div>
+                <aside class="report-preview-card" aria-label="Vista previa del reporte seleccionado">
+                    <div class="preview-header">
+                        <h3>Vista previa</h3>
+                        <span id="selectedReportStatus" class="status-chip status-pending">Pendiente</span>
+                    </div>
+                    <div class="preview-flag" id="previewFlagImage">
+                        <span>Vista de bandera</span>
+                    </div>
+                    <div class="preview-meta">
+                        <p><strong>Usuario:</strong> <span id="selectedReportUser">carlos.mendez</span></p>
+                        <p><strong>Motivo:</strong> <span id="selectedReportReason">Contenido inapropiado</span></p>
+                        <p><strong>Comentarios:</strong></p>
+                        <p id="selectedReportComment">Se detecta contenido que no cumple con las normas de la plataforma.</p>
+                    </div>
+                    <div class="preview-actions">
+                        <button class="btn btn-danger" id="banUserButton">Banear usuario</button>
+                        <button class="btn btn-secondary" id="hideFlagButton">Ocultar bandera</button>
+                        <button class="btn btn-secondary" id="deleteFlagButton">Eliminar bandera</button>
+                        <button class="btn btn-secondary" id="suspendUserButton">Suspender temporalmente</button>
+                        <button class="btn btn-secondary" id="warnUserButton">Enviar advertencia</button>
+                    </div>
+                    <div class="moderation-history">
+                        <h4>Historial de moderación</h4>
+                        <ul id="moderationHistoryList"></ul>
+                    </div>
+                </aside>
+            </div>
+            <div class="report-form-card">
+                <h3>Registrar nuevo reporte</h3>
+                <form id="reportForm">
+                    <label>
+                        Usuario de bandera
+                        <input type="text" id="reportUser" placeholder="ej. lucia.torres" required>
+                    </label>
+                    <label>
+                        Motivo
+                        <select id="reportReason" required>
+                            <option value="Contenido inapropiado">Contenido inapropiado</option>
+                            <option value="Derechos de autor">Derechos de autor</option>
+                            <option value="Spam o abuso">Spam o abuso</option>
+                            <option value="Violación de normas">Violación de normas</option>
+                        </select>
+                    </label>
+                    <label>
+                        Prioridad
+                        <select id="reportPriority" required>
+                            <option value="Alta">Alta</option>
+                            <option value="Media">Media</option>
+                            <option value="Baja">Baja</option>
+                        </select>
+                    </label>
+                    <label>
+                        Comentario opcional
+                        <textarea id="reportComment" rows="3" placeholder="Describe brevemente la razón del reporte"></textarea>
+                    </label>
+                    <button class="btn btn-primary" type="submit">Enviar reporte</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="dashboard-moderation-section page-panel" id="moderationSection">
+            <div class="section-heading-row">
+                <div>
+                    <span class="intranet-kicker">Moderación avanzada</span>
+                    <h2>Control administrativo</h2>
+                </div>
+                <p>Accede rápidamente a acciones de moderación, revisa sanciones y comprueba el historial de actividad del equipo.</p>
+            </div>
+            <div class="moderation-grid">
+                <article class="dashboard-card moderation-card">
+                    <span class="card-title">Acciones rápidas</span>
+                    <div class="moderation-actions">
+                        <button class="btn btn-secondary" id="banUserAction">Banear usuario</button>
+                        <button class="btn btn-secondary" id="deletePostAction">Eliminar publicación</button>
+                        <button class="btn btn-secondary" id="restoreContentAction">Restaurar contenido</button>
+                        <button class="btn btn-secondary" id="reviewSanctionsAction">Historial de sanciones</button>
+                        <button class="btn btn-secondary" id="reviewModeratorActivityAction">Actividad moderadores</button>
+                    </div>
+                </article>
+                <article class="dashboard-card log-card">
+                    <span class="card-title">Últimos accesos y actividad</span>
+                    <ul class="activity-list" id="adminActivityList"></ul>
+                </article>
+                <article class="dashboard-card stats-card">
+                    <span class="card-title">Soporte y tickets</span>
+                    <div class="support-summary">
+                        <div><strong>27</strong><span>Tickets abiertos</span></div>
+                        <div><strong>5</strong><span>Prioridad alta</span></div>
+                        <div><strong>14</strong><span>Incidencias resueltas</span></div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="dashboard-analytics-section page-panel" id="analyticsSection">
+            <div class="section-heading-row">
+                <div>
+                    <span class="intranet-kicker">Analíticas</span>
+                    <h2>Visión operacional</h2>
+                </div>
+                <p>Reportes clave de actividad diaria, usuarios activos, categorías y seguridad en un solo vistazo.</p>
+            </div>
+            <section class="dashboard-summary-grid">
+                <article class="metric-card">
+                    <span>Uso IA</span>
+                    <strong>89%</strong>
+                    <small>Herramientas inteligentes</small>
+                </article>
+                <article class="metric-card">
+                    <span>Usuarios activos</span>
+                    <strong>42</strong>
+                    <small>Última hora</small>
+                </article>
+                <article class="metric-card">
+                    <span>Banderas creadas</span>
+                    <strong>1.240</strong>
+                    <small>Esta semana</small>
+                </article>
+                <article class="metric-card">
+                    <span>Categorías</span>
+                    <strong>Patrióticas</strong>
+                    <small>Más solicitada</small>
+                </article>
+            </section>
+        </section>
+
+        <section class="page-panel active" id="committee">
+            <section class="intranet-part-heading no-number">
+                <div>
+                    <h2>Comité de empresa</h2>
+                    <p>Personas de referencia y funciones de representación laboral.</p>
+                </div>
+            </section>
+
+            <section class="intranet-section">
+                <div class="section-heading-row">
+                    <div>
+                        <span class="intranet-kicker">Comité de empresa</span>
+                        <h2>Organigrama interno</h2>
+                    </div>
+                    <p>Representación laboral de Vexilo organizada por áreas de seguimiento.</p>
+                </div>
+
+                <div class="committee-intro-grid">
+                    <a class="intranet-video-slot embedded-video video-cover-link" href="https://www.youtube.com/watch?v=Olrl8UZbnUE" target="_blank" rel="noopener" aria-label="Abrir vídeo explicativo del comité en YouTube">
+                        <img src="https://img.youtube.com/vi/Olrl8UZbnUE/hqdefault.jpg" alt="Portada del vídeo del comité VEXILO">
+                        <span class="video-play-badge" aria-hidden="true"></span>
+                    </a>
+                    <article class="committee-purpose">
+                        <span class="intranet-kicker">Para qué sirve</span>
+                        <h3>Representación y ayuda interna</h3>
+                        <p>El comité escucha a la plantilla, traslada propuestas, vigila el cumplimiento laboral y acompaña al trabajador cuando necesita orientación ante cambios, conflictos o decisiones empresariales.</p>
+                    </article>
+                </div>
+
+                <div class="mind-org">
+                    <article class="mind-node mind-center">
+                        <span class="face-placeholder"></span>
+                        <strong>Adrián Cervantes</strong>
+                        <small>Presidencia</small>
+                    </article>
+                    <article class="mind-node mind-a">
+                        <span class="face-placeholder"></span>
+                        <strong>Rubén Torres</strong>
+                        <small>Secretario</small>
+                    </article>
+                    <article class="mind-node mind-b">
+                        <span class="face-placeholder"></span>
+                        <strong>Víctor Bonilla</strong>
+                        <small>Salud laboral</small>
+                    </article>
+                    <article class="mind-node mind-c">
+                        <span class="face-placeholder"></span>
+                        <strong>Adrián Costa</strong>
+                        <small>Formación</small>
+                    </article>
+                    <article class="mind-node mind-d">
+                        <span class="face-placeholder"></span>
+                        <strong>Clara Martín</strong>
+                        <small>Igualdad</small>
+                    </article>
+                </div>
+
+                <div class="committee-info">
+                    <article>
+                        <h3>Qué es el comité</h3>
+                        <p>Es el órgano de representación de los trabajadores dentro de la empresa. Su función es escuchar, trasladar propuestas, vigilar el cumplimiento laboral y participar en consultas sobre decisiones que afecten a la plantilla.</p>
+                    </article>
+                    <article>
+                        <h3>Qué hace</h3>
+                        <p>Negocia mejoras, informa sobre derechos, revisa medidas de movilidad o cambios de jornada, participa en salud laboral y acompaña al trabajador cuando necesita orientación ante conflictos o decisiones empresariales.</p>
+                    </article>
+                </div>
+            </section>
+        </section>
+
+        <section class="page-panel" id="workerInfo">
+            <section class="intranet-part-heading no-number">
+                <div>
+                    <h2>Derechos y convenio</h2>
+                    <p>Información laboral convertida en tarjetas e infografías fáciles de escanear.</p>
+                </div>
+            </section>
+
+            <section class="intranet-section worker-info">
+                <div class="section-heading-row">
+                    <div>
+                        <span class="intranet-kicker">Información para el trabajador</span>
+                        <h2>Convenio y derechos clave</h2>
+                    </div>
+                    <a class="btn btn-secondary" href="https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1309373420303" target="_blank" rel="noopener">Visitar convenio</a>
+                </div>
+
+                <div class="info-pills">
+                    <article class="info-pill">
+                        <h3>Jornada laboral</h3>
+                        <span class="article-ref">Art. 10 - Jornada laboral</span>
+                        <p>Desde 2024 la jornada anual queda fijada en 1.752 horas de trabajo efectivo. La empresa debe entregar el calendario anual a la RLT y/o a la plantilla antes de finalizar el año anterior.</p>
+                        <ul>
+                            <li>La bolsa de horas exige preaviso general de 5 días naturales, motivando la causa.</li>
+                            <li>La desconexión digital protege el descanso fuera de jornada y el uso razonable de herramientas digitales.</li>
+                            <li>El control horario debe permitir comprobar la jornada realmente realizada.</li>
+                        </ul>
+                    </article>
+                    <article class="info-pill">
+                        <h3>Horas extra y descansos</h3>
+                        <span class="article-ref">Art. 11 - Horas extraordinarias</span>
+                        <p>Las horas extraordinarias deben limitarse a necesidades reales de producción, averías, pedidos urgentes o situaciones imprevisibles.</p>
+                        <ul>
+                            <li>Se compensan con descanso equivalente o se abonan según convenio.</li>
+                            <li>Deben registrarse y comunicarse de forma clara a la persona trabajadora.</li>
+                            <li>El comité puede pedir seguimiento cuando haya uso repetido o estructural.</li>
+                        </ul>
+                    </article>
+                    <article class="info-pill">
+                        <h3>Vacaciones</h3>
+                        <span class="article-ref">Art. 12 - Vacaciones</span>
+                        <p>El convenio regula 30 días naturales de vacaciones anuales. Su distribución debe planificarse con calendario y respetar los criterios pactados en la empresa.</p>
+                        <ul>
+                            <li>La persona trabajadora debe conocer sus fechas con antelación suficiente.</li>
+                            <li>Si coinciden con IT, nacimiento o cuidados protegidos, se revisa el disfrute según norma legal.</li>
+                            <li>El comité puede mediar ante solapamientos o cambios unilaterales.</li>
+                        </ul>
+                    </article>
+                    <article class="info-pill">
+                        <h3>Salario y pagos</h3>
+                        <span class="article-ref">Arts. 13, 14 y 15</span>
+                        <p>Las retribuciones se actualizan por tablas del convenio, con incrementos pactados, cláusulas de actualización salarial y dos gratificaciones extraordinarias.</p>
+                        <ul>
+                            <li>2024 y 2025 incorporan revisión adicional si el IPC supera el 3%, con límite del 1%.</li>
+                            <li>En 2026 se prevé una paga compensatoria de 400 euros para quienes cumplan los requisitos.</li>
+                            <li>Las pagas extra se devengan por semestres y pueden prorratearse por acuerdo.</li>
+                        </ul>
+                    </article>
+                    <article class="info-pill">
+                        <h3>Igualdad y conciliación</h3>
+                        <span class="article-ref">Arts. 34, 35, 36 y 59</span>
+                        <p>El convenio refuerza la igualdad de trato, el acceso a registro retributivo por medio de la RLT, los planes de igualdad y permisos por situaciones familiares.</p>
+                        <ul>
+                            <li>No puede haber discriminación en acceso, promoción, formación, salario o despido.</li>
+                            <li>Los permisos retribuidos incluyen matrimonio, fallecimiento, enfermedad grave, hospitalización, traslado y consultas médicas.</li>
+                            <li>Las parejas de hecho inscritas reciben el mismo tratamiento en permisos retribuidos.</li>
+                        </ul>
+                    </article>
+                    <article class="info-pill">
+                        <h3>Formación profesional</h3>
+                        <span class="article-ref">Art. 33 - Empleo y formación</span>
+                        <p>La formación se considera estratégica para mantener empleo de calidad y adaptarse a nuevas tecnologías, procesos y cambios del puesto.</p>
+                        <ul>
+                            <li>Derecho a permisos para exámenes y preferencia de turno si se cursan estudios regulares.</li>
+                            <li>La formación necesaria por cambios del puesto corre a cargo de la empresa y cuenta como tiempo efectivo.</li>
+                            <li>Con un año de antigüedad hay 20 horas anuales de formación acumulables hasta cinco años.</li>
+                        </ul>
+                    </article>
+                    <article class="info-pill">
+                        <h3>Salud laboral</h3>
+                        <span class="article-ref">Art. 31 - Salud laboral</span>
+                        <p>La empresa debe consultar a la RLT en decisiones sobre tecnología, organización del trabajo o materias primas que puedan afectar a la salud física o mental.</p>
+                        <ul>
+                            <li>Se impulsan medidas para mejorar seguridad, higiene y ambiente laboral.</li>
+                            <li>Las ausencias justificadas por permisos, hospitalización, accidente laboral o maternidad/paternidad no se tratan como absentismo sancionable.</li>
+                            <li>Empresa y RLT deben actuar conjuntamente ante medidas de control del absentismo.</li>
+                        </ul>
+                    </article>
+                    <article class="info-pill convention-visual" aria-hidden="true">
+                        <span>Convenio 2023-2026</span>
+                        <h3>Guía rápida para consultar antes de firmar</h3>
+                        <div class="visual-checks">
+                            <strong>1</strong><small>Identifica el cambio o permiso.</small>
+                            <strong>2</strong><small>Localiza el artículo aplicable.</small>
+                            <strong>3</strong><small>Guarda la comunicación escrita.</small>
+                            <strong>4</strong><small>Consulta al comité si hay duda.</small>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="contract-infographic">
+                    <div class="contract-left">
+                        <div class="contract-banner">Modificación del contrato de trabajo</div>
+                        <article class="contract-step">
+                            <strong>1</strong>
+                            <div>
+                                <h3>Movilidad funcional</h3>
+                                <p>Cambio de puesto de trabajo dentro de la empresa. Debe respetar la cualificación del trabajador.</p>
+                                <div class="contract-label">Dos tipos</div>
+                                <div class="mini-list">
+                                    <span>Dentro del mismo grupo profesional</span>
+                                    <span>Fuera del grupo, si está justificado y es temporal</span>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="contract-step accent">
+                            <strong>2</strong>
+                            <div>
+                                <h3>Movilidad geográfica</h3>
+                                <p>Cambio de centro de trabajo con traslado.</p>
+                                <div class="contract-label teal">Traslado permanente</div>
+                                <div class="mini-list">
+                                    <span>Duración superior a 12 meses en 3 años</span>
+                                    <span>Requiere causas objetivas</span>
+                                </div>
+                                <div class="contract-label teal">Opciones del trabajador</div>
+                                <div class="option-grid">
+                                    <span>Aceptar; la empresa paga los gastos de traslado</span>
+                                    <span>Extinguir el contrato con indemnización de 20 días por año, máximo 12 meses</span>
+                                    <span>Impugnar en los tribunales</span>
+                                </div>
+                                <div class="contract-label teal">Desplazamiento temporal</div>
+                                <div class="mini-list">
+                                    <span>Preaviso mínimo de 5 días si supera 3 meses</span>
+                                    <span>Mismo salario y puesto</span>
+                                    <span>Viaje y alojamiento pagados</span>
+                                    <span>4 días de permiso en domicilio cada 3 meses</span>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="contract-step purple">
+                            <strong>3</strong>
+                            <div>
+                                <h3>Modificaciones sustanciales</h3>
+                                <p>Cambios importantes que afectan a condiciones esenciales de trabajo.</p>
+                                <div class="icon-row"><span>Jornada laboral</span><span>Horario</span><span>Sistema de turnos</span><span>Salario</span><span>Sistema de rendimiento</span></div>
+                                <div class="contract-label purple-label">Cambio individual</div>
+                                <div class="mini-list">
+                                    <span>Preaviso de 15 días</span>
+                                    <span>Aceptar</span>
+                                    <span>Impugnar en tribunales en 20 días</span>
+                                    <span>Extinguir con indemnización de 20 días por año, máximo 9 meses</span>
+                                </div>
+                                <div class="contract-label purple-label">Cambio colectivo</div>
+                                <div class="mini-list">
+                                    <span>Periodo de consultas máximo de 15 días con representantes</span>
+                                    <span>Se aplica tras 7 días si se aprueba</span>
+                                    <span>Debe justificarse, comunicarse y respetar derechos</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="contract-right">
+                        <div class="dismissal-panel">
+                            <h3>Despido disciplinario</h3>
+                            <p>Extinción del contrato por incumplimiento grave del trabajador.</p>
+                            <div class="contract-label danger">Causas comunes</div>
+                            <div class="causes-grid">
+                                <span>Faltas repetidas de asistencia o puntualidad</span>
+                                <span>Disminución del rendimiento</span>
+                                <span>Desobediencia o abuso de confianza</span>
+                                <span>Acoso laboral</span>
+                                <span>Agresiones verbales o físicas</span>
+                                <span>Consumo de sustancias que afecten al trabajo</span>
+                            </div>
+                        </div>
+                        <div class="procedure-panel">
+                            <h3>Procedimiento</h3>
+                            <p>El empleador debe notificarlo por escrito y explicar claramente los hechos y la fecha de efectos. No se requiere preaviso.</p>
+                        </div>
+                        <div class="rights-panel">
+                            <h3>Derechos del trabajador</h3>
+                            <p>Tras el despido, el trabajador puede:</p>
+                            <span>Aceptar el despido</span>
+                            <span>Impugnar en los tribunales en 20 días hábiles</span>
+                        </div>
+                        <div class="dismissal-visual" aria-hidden="true">
+                            <div>
+                                <span>20</span>
+                                <strong>días hábiles</strong>
+                                <small>Plazo para impugnar desde la fecha de efectos.</small>
+                            </div>
+                            <div>
+                                <span>0</span>
+                                <strong>preaviso</strong>
+                                <small>En el despido disciplinario no se exige preaviso.</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <section class="page-panel" id="documents">
+            <section class="intranet-part-heading no-number">
+                <div>
+                    <h2>Documentos</h2>
+                    <p>Biblioteca laboral y normativa interna con descarga directa.</p>
+                </div>
+            </section>
+
+            <section class="intranet-section documents-section">
+                <div class="section-heading-row">
+                    <div>
+                        <span class="intranet-kicker">Biblioteca interna</span>
+                        <h2>Documentos de referencia</h2>
+                    </div>
+                    <p>Convenio, legislación laboral, prevención, calendario y políticas de empresa.</p>
+                </div>
+
+                <div class="document-list">
+                    <article class="document-row">
+                        <div class="document-icon">CV</div>
+                        <div>
+                            <h3>Convenio colectivo</h3>
+                            <p>Referencia del convenio aplicable y condiciones principales de trabajo.</p>
+                        </div>
+                        <a class="btn btn-secondary" href="https://www.boa.aragon.es/cgi-bin/EBOA/BRSCGI?CMD=VEROBJ&MLKOB=1309373420303" target="_blank" rel="noopener">Descargar</a>
+                    </article>
+                    <article class="document-row">
+                        <div class="document-icon">ET</div>
+                        <div>
+                            <h3>Estatuto de los Trabajadores</h3>
+                            <p>Texto legal oficial del Ministerio de Trabajo y Economía Social.</p>
+                        </div>
+                        <a class="btn btn-secondary" href="https://www.mites.gob.es/ficheros/ministerio/sec_leyes/trabajo/estatuto06/Ap1y2Estatuto.pdf" target="_blank" rel="noopener">Descargar</a>
+                    </article>
+                    <article class="document-row">
+                        <div class="document-icon">PR</div>
+                        <div>
+                            <h3>Riesgos laborales</h3>
+                            <p>Medidas básicas de prevención, actuación ante incidentes y equipos de protección.</p>
+                        </div>
+                        <a class="btn btn-secondary" href="assets/docs/riesgos-laborales-vexilo.txt" download>Descargar</a>
+                    </article>
+                    <article class="document-row">
+                        <div class="document-icon">CL</div>
+                        <div>
+                            <h3>Calendario de trabajo</h3>
+                            <p>Calendario interno de jornada, festivos, cierres y revisiones mensuales.</p>
+                        </div>
+                        <a class="btn btn-secondary" href="assets/docs/calendario-trabajo-vexilo.txt" download>Descargar</a>
+                    </article>
+                    <article class="document-row">
+                        <div class="document-icon">NE</div>
+                        <div>
+                            <h3>Normas de la empresa</h3>
+                            <p>Normas internas de conducta, uso de herramientas, calidad y comunicación.</p>
+                        </div>
+                        <a class="btn btn-secondary" href="assets/docs/normas-empresa-vexilo.txt" download>Descargar</a>
+                    </article>
+                    <article class="document-row">
+                        <div class="document-icon">TC</div>
+                        <div>
+                            <h3>Términos y condiciones</h3>
+                            <p>Condiciones de uso de la plataforma, pedidos, personalización y privacidad.</p>
+                        </div>
+                        <a class="btn btn-secondary" href="assets/docs/terminos-condiciones-vexilo.txt" download>Descargar</a>
+                    </article>
+                </div>
+            </section>
+        </section>
+
+        <section class="page-panel" id="agreements">
+            <section class="intranet-part-heading no-number">
+                <div>
+                    <h2>Noticias y acuerdos</h2>
+                    <p>Seguimiento de acuerdos conseguidos y objetivos internos.</p>
+                </div>
+            </section>
+
+            <section class="intranet-section agreements-section">
+                <div class="section-heading-row">
+                    <div>
+                        <span class="intranet-kicker">Acuerdos y objetivos</span>
+                        <h2>Noticias internas</h2>
+                    </div>
+                </div>
+
+                <div class="news-board">
+                    <article class="news-hero-card">
+                        <span>Acuerdos conseguidos</span>
+                        <h3>Refuerzo del derecho a la desconexión digital</h3>
+                        <p><strong>Ámsterdam, abril de 2026.</strong> Vexilo ha aprobado una nueva política que garantiza el derecho a desconectar fuera del horario laboral. Ya no se espera que los trabajadores respondan mensajes tras su jornada, salvo en casos urgentes.</p>
+                        <div class="news-meta-row"><small>Derecho laboral</small><small>Abril 2026</small><small>Desconexión digital</small></div>
+                    </article>
+                    <div class="news-stack">
+                        <article class="news-card">
+                            <span>Promoción</span>
+                            <h3>Nuevo plan de promoción y formación</h3>
+                            <p>Vexilo lanza un plan para impulsar la promoción interna y la formación profesional. Los empleados tendrán acceso prioritario a vacantes y formación remunerada dentro del horario laboral.</p>
+                        </article>
+                        <article class="news-card">
+                            <span>Movilidad</span>
+                            <h3>Mejores condiciones para la movilidad</h3>
+                            <p>Un nuevo acuerdo mejora las condiciones para los trabajadores afectados por movilidad geográfica. Incluye mayores indemnizaciones, más tiempo de preaviso y apoyo en vivienda.</p>
+                        </article>
+                        <article class="news-card">
+                            <span>Despidos</span>
+                            <h3>Mayores garantías en los despidos</h3>
+                            <p>Vexilo refuerza los procedimientos de despido, asegurando explicaciones claras por escrito y cumplimiento legal. Los trabajadores también recibirán orientación sobre cómo impugnar decisiones.</p>
+                        </article>
+                        <article class="news-card featured-news objective-carousel" data-objective-index="0">
+                            <div class="objective-card-top">
+                                <span id="objectiveTag">Objetivos para 2026</span>
+                                <div class="objective-arrows" aria-label="Cambiar objetivo">
+                                    <button type="button" id="objectivePrev" aria-label="Objetivo anterior">&lsaquo;</button>
+                                    <button type="button" id="objectiveNext" aria-label="Siguiente objetivo">&rsaquo;</button>
+                                </div>
+                            </div>
+                            <h3 id="objectiveTitle">Hacia contratos más estables</h3>
+                            <p id="objectiveText">Ámsterdam, previsión 2026. El comité de empresa ha fijado como objetivo reducir los contratos temporales y fomentar la contratación indefinida en toda la empresa.</p>
+                            <div class="objective-dots" id="objectiveDots" aria-hidden="true"></div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+        </section>
+        </div>
+    </main>
+
+    <section class="intranet-locked" id="intranetLocked" hidden>
+        <h1>Acceso restringido</h1>
+        <p>Esta intranet solo está disponible para usuarios con rol de trabajador.</p>
+        <div class="demo-access-card">
+            <span>Demo admin</span>
+            <strong>admin@demo.com</strong>
+            <strong>admin123</strong>
+        </div>
+        <div class="button-group">
+            <a class="btn btn-primary" href="login.html">Iniciar sesión</a>
+            <a class="btn btn-secondary" href="profile.html">Ver perfil</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>VEXILO</h4>
+                <p>Intranet interna para trabajadores y representantes.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; VEXILO 2026 - Internal workspace</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', initIntranet);
+
+        async function initIntranet() {
+            const content = document.getElementById('intranetContent');
+            const locked = document.getElementById('intranetLocked');
+            let user = getLoggedInUser();
+
+            const profile = await api.getProfile();
+            if (profile && profile.success) {
+                user = profile.data;
+                localStorage.setItem('user', JSON.stringify(user));
+            }
+
+            if (!user || user.rol !== 'worker') {
+                locked.hidden = false;
+                content.hidden = true;
+                return;
+            }
+
+            content.hidden = false;
+            locked.hidden = true;
+            setupClockIn();
+            setupMiniCalendar();
+            setupIntranetTabs();
+            showPagePanel('committee');
+            setupReportPanel();
+            setupModerationPanel();
+            setupCheckinSection();
+            setupAnalyticsSection();
+            setupObjectiveCarousel();
+        }
+
+        function setupObjectiveCarousel() {
+            const card = document.querySelector('.objective-carousel');
+            const title = document.getElementById('objectiveTitle');
+            const text = document.getElementById('objectiveText');
+            const dots = document.getElementById('objectiveDots');
+            const prev = document.getElementById('objectivePrev');
+            const next = document.getElementById('objectiveNext');
+            if (!card || !title || !text || !dots || !prev || !next) return;
+
+            const objectives = [
+                {
+                    title: 'Hacia contratos más estables',
+                    text: 'Ámsterdam, previsión 2026. El comité de empresa ha fijado como objetivo reducir los contratos temporales y fomentar la contratación indefinida en toda la empresa. La propuesta incluye limitar el uso de contratos de corta duración y priorizar contratos indefinidos y fijos-discontinuos, garantizando mayor estabilidad laboral y cumplimiento de la normativa vigente. Objetivo: lograr una plantilla más segura y estable en Vexilo.'
+                },
+                {
+                    title: 'Cambios contractuales justos y transparentes',
+                    text: 'El comité busca establecer un protocolo interno claro para modificaciones contractuales y despidos, garantizando que todas las decisiones estén justificadas, documentadas y comunicadas con antelación. También se pretende mejorar el apoyo al trabajador en casos de modificaciones sustanciales, movilidad o extinción del contrato, reforzando las garantías legales y la protección laboral. Objetivo: asegurar equidad, transparencia y pleno respeto de los derechos de los trabajadores.'
+                }
+            ];
+            let index = 0;
+
+            const render = () => {
+                title.textContent = objectives[index].title;
+                text.textContent = objectives[index].text;
+                dots.innerHTML = objectives.map((_, dotIndex) => (
+                    `<span class="${dotIndex === index ? 'active' : ''}"></span>`
+                )).join('');
+            };
+
+            prev.addEventListener('click', () => {
+                index = (index - 1 + objectives.length) % objectives.length;
+                render();
+            });
+            next.addEventListener('click', () => {
+                index = (index + 1) % objectives.length;
+                render();
+            });
+
+            render();
+        }
+
+        function setupMiniCalendar() {
+            const calendar = document.getElementById('miniCalendar');
+            const title = document.getElementById('calendarTitle');
+            const prev = document.getElementById('calendarPrev');
+            const next = document.getElementById('calendarNext');
+            const todayButton = document.getElementById('calendarToday');
+            if (!calendar || !title || !prev || !next || !todayButton) return;
+
+            const today = new Date();
+            let visibleDate = new Date(today.getFullYear(), today.getMonth(), 1);
+            const weekDays = ['L', 'M', 'X', 'J', 'V', 'S', 'D'];
+            const monthFormatter = new Intl.DateTimeFormat('es-ES', { month: 'long', year: 'numeric' });
+
+            const isSameDay = (dateA, dateB) => (
+                dateA.getFullYear() === dateB.getFullYear()
+                && dateA.getMonth() === dateB.getMonth()
+                && dateA.getDate() === dateB.getDate()
+            );
+
+            const renderCalendar = () => {
+                const year = visibleDate.getFullYear();
+                const month = visibleDate.getMonth();
+                const firstDay = new Date(year, month, 1);
+                const daysInMonth = new Date(year, month + 1, 0).getDate();
+                const leadingBlanks = (firstDay.getDay() + 6) % 7;
+                const monthLabel = monthFormatter.format(visibleDate);
+
+                title.textContent = monthLabel.charAt(0).toUpperCase() + monthLabel.slice(1);
+                calendar.innerHTML = '';
+
+                weekDays.forEach((day) => {
+                    const dayLabel = document.createElement('span');
+                    dayLabel.textContent = day;
+                    dayLabel.className = 'weekday';
+                    calendar.appendChild(dayLabel);
+                });
+
+                for (let blank = 0; blank < leadingBlanks; blank += 1) {
+                    calendar.appendChild(document.createElement('i'));
+                }
+
+                for (let day = 1; day <= daysInMonth; day += 1) {
+                    const dayCell = document.createElement('strong');
+                    const cellDate = new Date(year, month, day);
+                    dayCell.textContent = day;
+                    if (isSameDay(cellDate, today)) {
+                        dayCell.classList.add('today');
+                        dayCell.setAttribute('aria-current', 'date');
+                    }
+                    calendar.appendChild(dayCell);
+                }
+            };
+
+            prev.addEventListener('click', () => {
+                visibleDate = new Date(visibleDate.getFullYear(), visibleDate.getMonth() - 1, 1);
+                renderCalendar();
+            });
+
+            next.addEventListener('click', () => {
+                visibleDate = new Date(visibleDate.getFullYear(), visibleDate.getMonth() + 1, 1);
+                renderCalendar();
+            });
+
+            todayButton.addEventListener('click', () => {
+                visibleDate = new Date(today.getFullYear(), today.getMonth(), 1);
+                renderCalendar();
+            });
+
+            renderCalendar();
+        }
+
+        function showPagePanel(panelId) {
+            const panels = document.querySelectorAll('.page-panel');
+            const tabs = document.querySelectorAll('.intranet-tab');
+            const sidebarLinks = document.querySelectorAll('.sidebar-link');
+
+            panels.forEach((panel) => {
+                panel.classList.toggle('active', panel.id === panelId);
+            });
+
+            const updateActive = (items) => {
+                items.forEach((item) => {
+                    const target = item.getAttribute('href')?.split('#')[1];
+                    item.classList.toggle('active', target === panelId);
+                });
+            };
+
+            updateActive(tabs);
+            updateActive(sidebarLinks);
+        }
+
+        function setupIntranetTabs() {
+            const tabs = document.querySelectorAll('.intranet-tab');
+            const sidebarLinks = document.querySelectorAll('.sidebar-link');
+
+            const bindNavigation = (elementList) => {
+                elementList.forEach((item) => {
+                    item.addEventListener('click', (event) => {
+                        event.preventDefault();
+                        const targetPanel = item.getAttribute('href')?.split('#')[1];
+                        if (targetPanel) {
+                            showPagePanel(targetPanel);
+                        }
+                    });
+                });
+            };
+
+            bindNavigation(tabs);
+            bindNavigation(sidebarLinks);
+        }
+
+        function setupClockIn() {
+            const button = document.getElementById('clockButton');
+            const status = document.getElementById('clockStatus');
+            const message = document.getElementById('clockMessage');
+            const activity = document.getElementById('clockActivity');
+            const active = localStorage.getItem('vexiloClockIn');
+
+            function addActivity(label) {
+                if (!activity) return;
+                const item = document.createElement('li');
+                item.innerHTML = '<strong>' + new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) + '</strong><span>' + label + '</span>';
+                activity.prepend(item);
+            }
+
+            function render() {
+                const startedAt = localStorage.getItem('vexiloClockIn');
+                if (startedAt) {
+                    status.textContent = 'Jornada iniciada';
+                    message.textContent = 'Entrada registrada a las ' + new Date(startedAt).toLocaleTimeString();
+                    button.textContent = 'Fichar salida';
+                    return;
+                }
+
+                status.textContent = 'Sin fichaje activo';
+                message.textContent = 'Registra la entrada o salida de tu jornada.';
+                button.textContent = 'Fichar entrada';
+            }
+
+            if (active) render();
+
+            button.addEventListener('click', () => {
+                const startedAt = localStorage.getItem('vexiloClockIn');
+                if (startedAt) {
+                    localStorage.setItem('vexiloLastClockOut', new Date().toISOString());
+                    localStorage.removeItem('vexiloClockIn');
+                    addActivity('Check-out registrado correctamente');
+                } else {
+                    localStorage.setItem('vexiloClockIn', new Date().toISOString());
+                    addActivity('Check-in registrado correctamente');
+                }
+                render();
+            });
+        }
+
+        function getInitialReports() {
+            return [
+                {
+                    id: 1,
+                    title: 'Bandera de Carlos',
+                    user: 'carlos.mendez',
+                    reason: 'Contenido inapropiado',
+                    priority: 'Alta',
+                    status: 'Pendiente',
+                    date: '18 may 2026',
+                    comment: 'Se detecta contenido que no cumple con las normas de la plataforma.',
+                    history: [{ date: '18 may 2026', text: 'Reporte creado.' }]
+                },
+                {
+                    id: 2,
+                    title: 'Bandera de Lucía',
+                    user: 'lucia.torres',
+                    reason: 'Spam o abuso',
+                    priority: 'Media',
+                    status: 'En revisión',
+                    date: '17 may 2026',
+                    comment: 'Varias publicaciones duplicadas en el catálogo.',
+                    history: [{ date: '17 may 2026', text: 'Reporte asignado a moderación.' }]
+                },
+                {
+                    id: 3,
+                    title: 'Bandera de Daniel',
+                    user: 'daniel.ruiz',
+                    reason: 'Derechos de autor',
+                    priority: 'Baja',
+                    status: 'Resuelto',
+                    date: '16 may 2026',
+                    comment: 'Se confirmó que la imagen es original del creador.',
+                    history: [{ date: '16 may 2026', text: 'Reporte resuelto.' }]
+                }
+            ];
+        }
+
+        function setupReportPanel() {
+            const storageKey = 'vexiloFlagReports';
+            const reports = JSON.parse(localStorage.getItem(storageKey) || 'null') || getInitialReports();
+            if (!localStorage.getItem(storageKey)) {
+                localStorage.setItem(storageKey, JSON.stringify(reports));
+            }
+
+            let activeReportId = reports[0]?.id || null;
+            const tableBody = document.getElementById('reportTableBody');
+            const searchInput = document.getElementById('reportSearch');
+            const statusFilter = document.getElementById('reportStatusFilter');
+            const priorityFilter = document.getElementById('reportPriorityFilter');
+            const form = document.getElementById('reportForm');
+
+            const actionButtons = {
+                ban: document.getElementById('banUserButton'),
+                hide: document.getElementById('hideFlagButton'),
+                delete: document.getElementById('deleteFlagButton'),
+                suspend: document.getElementById('suspendUserButton'),
+                warn: document.getElementById('warnUserButton')
+            };
+
+            const selectedStatus = document.getElementById('selectedReportStatus');
+            const selectedUser = document.getElementById('selectedReportUser');
+            const selectedReason = document.getElementById('selectedReportReason');
+            const selectedComment = document.getElementById('selectedReportComment');
+            const moderationHistory = document.getElementById('moderationHistoryList');
+
+            function getFilteredReports() {
+                const query = searchInput.value.trim().toLowerCase();
+                const status = statusFilter.value;
+                const priority = priorityFilter.value;
+
+                return reports.filter((report) => {
+                    const matchesQuery = [report.title, report.user, report.reason, report.comment]
+                        .join(' ')
+                        .toLowerCase()
+                        .includes(query);
+
+                    const matchesState = status === 'all' || report.status === status;
+                    const matchesPriority = priority === 'all' || report.priority === priority;
+
+                    return matchesQuery && matchesState && matchesPriority;
+                });
+            }
+
+            function renderReportTable() {
+                const filtered = getFilteredReports();
+                tableBody.innerHTML = filtered.map((report) => {
+                    const isActive = report.id === activeReportId ? ' active-row' : '';
+                    return `
+                        <tr class="report-row${isActive}" data-report-id="${report.id}">
+                            <td>${report.title}</td>
+                            <td>${report.user}</td>
+                            <td>${report.reason}</td>
+                            <td>${report.status}</td>
+                            <td>${report.priority}</td>
+                            <td>${report.date}</td>
+                        </tr>
+                    `;
+                }).join('');
+
+                document.querySelectorAll('.report-row').forEach((row) => {
+                    row.addEventListener('click', () => {
+                        activeReportId = row.getAttribute('data-report-id');
+                        renderReportTable();
+                        renderReportPreview(getReportById(activeReportId));
+                    });
+                });
+
+                if (!activeReportId && filtered.length) {
+                    activeReportId = filtered[0].id;
+                }
+
+                const selected = getReportById(activeReportId);
+                if (selected) {
+                    renderReportPreview(selected);
+                }
+            }
+
+            function getReportById(id) {
+                return reports.find((item) => String(item.id) === String(id));
+            }
+
+            function renderReportPreview(report) {
+                if (!report) return;
+                selectedStatus.textContent = report.status;
+                selectedStatus.className = `status-chip status-${report.status.toLowerCase().replace(' ', '-')}`;
+                selectedUser.textContent = report.user;
+                selectedReason.textContent = report.reason;
+                selectedComment.textContent = report.comment || 'Sin comentarios adicionales.';
+                moderationHistory.innerHTML = report.history
+                    .map((entry) => `<li><strong>${entry.date}</strong> ${entry.text}</li>`)
+                    .join('');
+            }
+
+            function updateReport(report, updates, logText) {
+                Object.assign(report, updates);
+                report.history = report.history || [];
+                if (logText) {
+                    report.history.unshift({ date: formatDate(new Date()), text: logText });
+                }
+                localStorage.setItem(storageKey, JSON.stringify(reports));
+                renderReportTable();
+            }
+
+            function formatDate(date) {
+                return date.toLocaleDateString('es-ES', { day: '2-digit', month: 'short', year: 'numeric' });
+            }
+
+            async function handleReportAction(action) {
+                const report = getReportById(activeReportId);
+                if (!report) return;
+                switch (action) {
+                    case 'ban':
+                        updateReport(report, { status: 'En revisión' }, `Usuario ${report.user} marcado para ban.`);
+                        alert(`Usuario ${report.user} en revisión para ban.`);
+                        break;
+                    case 'hide':
+                        updateReport(report, { status: 'En revisión' }, 'Bandera oculta parcial.')
+                        break;
+                    case 'delete':
+                        if (report.designId) {
+                            const confirmed = confirm(`Eliminar definitivamente "${report.title}" de la web?`);
+                            if (!confirmed) return;
+                            const result = await api.deleteDesignAsAdmin(report.designId);
+                            if (!result || !result.success) {
+                                alert(result?.error || 'No se pudo eliminar la bandera.');
+                                return;
+                            }
+                        }
+                        updateReport(report, { status: 'Resuelto' }, 'Bandera eliminada por moderación.');
+                        alert(report.designId ? 'Bandera eliminada de la web.' : 'Reporte marcado como resuelto. Esta entrada no tiene una bandera pública vinculada.');
+                        break;
+                    case 'suspend':
+                        updateReport(report, { status: 'En revisión' }, 'Suspensión temporal solicitada.');
+                        break;
+                    case 'warn':
+                        updateReport(report, { status: 'En revisión' }, 'Advertencia enviada al usuario.');
+                        break;
+                }
+            }
+
+            searchInput.addEventListener('input', renderReportTable);
+            statusFilter.addEventListener('change', renderReportTable);
+            priorityFilter.addEventListener('change', renderReportTable);
+
+            if (form) {
+                form.addEventListener('submit', (event) => {
+                    event.preventDefault();
+                    const user = document.getElementById('reportUser').value.trim();
+                    const reason = document.getElementById('reportReason').value;
+                    const priority = document.getElementById('reportPriority').value;
+                    const comment = document.getElementById('reportComment').value.trim();
+
+                    if (!user || !reason) {
+                        alert('Completa el usuario y el motivo del reporte.');
+                        return;
+                    }
+
+                    const newReport = {
+                        id: Date.now(),
+                        title: `Bandera de ${user}`,
+                        user,
+                        reason,
+                        priority,
+                        status: 'Pendiente',
+                        date: formatDate(new Date()),
+                        comment,
+                        history: [{ date: formatDate(new Date()), text: 'Reporte creado.' }]
+                    };
+
+                    reports.unshift(newReport);
+                    localStorage.setItem(storageKey, JSON.stringify(reports));
+                    activeReportId = newReport.id;
+                    renderReportTable();
+                    form.reset();
+                    alert('Reporte registrado correctamente.');
+                });
+            }
+
+            Object.entries(actionButtons).forEach(([action, button]) => {
+                if (!button) return;
+                button.addEventListener('click', () => handleReportAction(action));
+            });
+
+            const openReportButton = document.getElementById('openReportButton');
+            if (openReportButton) {
+                openReportButton.addEventListener('click', () => {
+                    showPagePanel('reportesSection');
+                });
+            }
+
+            renderReportTable();
+        }
+
+        function setupModerationPanel() {
+            const activityList = document.getElementById('adminActivityList');
+            const actions = [
+                { label: 'Banear usuario', message: 'Usuario marcado para revisión.' },
+                { label: 'Eliminar publicación', message: 'Publicación enviada a eliminación.' },
+                { label: 'Restaurar contenido', message: 'Contenido restaurado y reactivado.' },
+                { label: 'Historial de sanciones', message: 'Mostrando registros de sanciones.' },
+                { label: 'Actividad moderadores', message: 'Cargando actividad de moderadores.' }
+            ];
+
+            const eventItems = [
+                { time: '09:12', text: 'Carlos registró un reporte.' },
+                { time: '10:07', text: 'Lucía actualizó estado de incidencia.' },
+                { time: '11:35', text: 'Daniel generó alerta de seguridad.' }
+            ];
+
+            if (activityList) {
+                activityList.innerHTML = eventItems.map((item) => `<li><strong>${item.time}</strong><span>${item.text}</span></li>`).join('');
+            }
+
+            const moderationButtons = [
+                { id: 'banUserAction', message: 'Usuario marcado para revisión.' },
+                { id: 'deletePostAction', message: 'Publicación enviada a eliminación.' },
+                { id: 'restoreContentAction', message: 'Contenido restaurado y reactivado.' },
+                { id: 'reviewSanctionsAction', message: 'Mostrando registros de sanciones.' },
+                { id: 'reviewModeratorActivityAction', message: 'Cargando actividad de moderadores.' }
+            ];
+
+            moderationButtons.forEach((item) => {
+                const button = document.getElementById(item.id);
+                if (button) {
+                    button.addEventListener('click', () => {
+                        if (activityList) {
+                            const newItem = document.createElement('li');
+                            newItem.innerHTML = `<strong>${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</strong><span>${item.message}</span>`;
+                            activityList.prepend(newItem);
+                        }
+                        alert(item.message);
+                    });
+                }
+            });
+        }
+
+        function setupCheckinSection() {
+            const teamStatusList = document.getElementById('teamStatusList');
+            const workers = [
+                { name: 'Carlos Méndez', role: 'Moderador', status: 'En línea' },
+                { name: 'Lucía Torres', role: 'Diseñadora', status: 'En línea' },
+                { name: 'Daniel Ruiz', role: 'Soporte', status: 'Asignado' },
+                { name: 'Marta Gil', role: 'Administración', status: 'Disponible' }
+            ];
+
+            if (!teamStatusList) return;
+            teamStatusList.innerHTML = workers.map((worker) => `
+                <div>
+                    <span>${worker.name} — ${worker.role}</span>
+                    <small>${worker.status}</small>
+                </div>
+            `).join('');
+        }
+
+        function setupAnalyticsSection() {
+            const openModerationButton = document.getElementById('openModerationButton');
+            if (openModerationButton) {
+                openModerationButton.addEventListener('click', () => {
+                    showPagePanel('moderationSection');
+                });
+            }
+        }
+
+    </script>
+</body>
+</html>

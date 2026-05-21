@@ -1,0 +1,12 @@
+
+> backend-lonas@1.0.0 dev
+> tsx watch server.ts
+
+🚩 Servidor VEXILO escuchando en http://localhost:3000
+📁 Frontend servido desde: C:\Users\S2-PC00\Downloads\retoAdri\retoAdri\reto (2)\reto\frontend\src
+9:12:55 [tsx] change in ./server.ts Rerunning...
+c🚩 Servidor VEXILO escuchando en http://localhost:3000
+📁 Frontend servido desde: C:\Users\S2-PC00\Downloads\retoAdri\retoAdri\reto (2)\reto\frontend\src
+12:02:35 [tsx] change in ./server.ts Rerunning...
+c🚩 Servidor VEXILO escuchando en http://localhost:3000
+📁 Frontend servido desde: C:\Users\S2-PC00\Downloads\retoAdri\retoAdri\reto (2)\reto\frontend\src

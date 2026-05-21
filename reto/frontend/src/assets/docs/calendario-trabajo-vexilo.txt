@@ -1,0 +1,20 @@
+VEXILO - Calendario de trabajo
+
+Periodo: 2026
+
+Jornada ordinaria:
+- Lunes a viernes.
+- Horario base: 09:00 a 17:00.
+- Pausa de comida segun organizacion interna del equipo.
+
+Revision mensual:
+- Primer lunes de cada mes: revision de objetivos y carga de trabajo.
+- Ultimo viernes de cada mes: cierre de incidencias y propuestas del comite.
+
+Festivos y cierres:
+- Los festivos se ajustaran al calendario laboral vigente del centro de trabajo.
+- Los cierres especiales se comunicaran con antelacion mediante la intranet.
+
+Vacaciones:
+- Solicitud preferente con al menos 30 dias de antelacion.
+- Validacion segun necesidades productivas y criterios de conciliacion.

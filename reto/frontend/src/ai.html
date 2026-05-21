@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Flag Studio - VEXILO</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="ai-page">
+    <header class="header">
+        <div class="header-top">
+            <p class="promo-text">SIGN UP AND GET 10% OFF YOUR FIRST ORDER <a href="#newsletter">Subscribe here</a></p>
+            <button class="close-promo" aria-label="Close promotion">x</button>
+        </div>
+        <nav class="navbar">
+            <a href="index.html" class="logo" aria-label="VEXILO Home">
+                <img src="https://i.ibb.co/hxvWQ0f1/imagen-logo-sin-nombre.png" alt="VEXILO Logo" class="logo-icon">
+                <span class="logo-text">VEXILO</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">HOME</a></li>
+                <li><a href="catalog.html" class="nav-link">CATALOG</a></li>
+                <li><a href="ai.html" class="nav-link active">AI</a></li>
+                <li><a href="product-details.html#customization" class="nav-link">CUSTOMIZE</a></li>
+            </ul>
+            <div class="nav-right">
+                <input type="text" placeholder="Search for products..." class="search-input" aria-label="Search for products">
+                <button class="cart-btn" aria-label="Cart"><img src="https://img.freepik.com/vector-premium/icono-web-carrito-compras-vector-minimalista-plataformas-comercio-electronico-tiendas-linea-simbolo-carrito-simple_1231005-1491.jpg?semt=ais_hybrid&w=740&q=80" alt="Cart"></button>
+                <div class="profile-menu">
+                    <button class="profile-btn" aria-label="Profile"><img src="https://static.vecteezy.com/system/resources/previews/058/235/304/non_2x/minimalist-user-profile-icon-for-apps-and-websites-free-vector.jpg" alt="Profile"></button>
+                    <div class="profile-dropdown" id="profileDropdown">
+                        <div class="dropdown-user-info" id="dropdownUserInfo" style="display: none;">
+                            <p id="userNameDisplay"></p>
+                            <p id="userEmailDisplay"></p>
+                            <hr>
+                        </div>
+                        <a href="profile.html" class="dropdown-item" id="profileLink" style="display: none;">My Profile</a>
+                        <a href="admin.html" class="dropdown-item" id="intranetLink" style="display: none;">Intranet</a>
+                        <a href="my-orders.html" class="dropdown-item" id="ordersLink" style="display: none;">My Orders</a>
+                        <a href="my-designs.html" class="dropdown-item" id="designsLink" style="display: none;">My Designs</a>
+                        <a href="#logout" class="dropdown-item" id="logoutBtn" style="display: none;">Log Out</a>
+                        <a href="login.html" class="dropdown-item" id="loginLink">Log In</a>
+                        <a href="signup.html" class="dropdown-item" id="signupLink">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="ai-studio">
+        <section class="ai-copy">
+            <p class="ai-kicker">AI Flag Studio</p>
+            <h1>Create a flag from any idea</h1>
+            <p class="ai-subtitle">Describe the mood, colors, symbols, place, team or story. VEXILO will turn it into a clean flag concept ready to save and customize.</p>
+            <div class="ai-prompt-panel">
+                <label for="aiPrompt">Prompt</label>
+                <textarea id="aiPrompt" rows="5" placeholder="A black and gold flag for a night running club, with a moon, fast diagonal lines and a premium minimal style"></textarea>
+                <div class="ai-controls">
+                    <select id="aiStyle" aria-label="Flag style">
+                        <option value="modern">Modern</option>
+                        <option value="heritage">Heritage</option>
+                        <option value="sport">Sport</option>
+                        <option value="festival">Festival</option>
+                    </select>
+                    <button class="btn btn-primary" id="generateAiFlag" type="button">Generate</button>
+                    <button class="btn btn-secondary" id="saveAiFlag" type="button">Save design</button>
+                </div>
+                <p id="aiStatus" class="ai-status">Ready.</p>
+            </div>
+        </section>
+
+        <section class="ai-preview-panel" aria-label="Generated flag preview">
+            <canvas id="aiFlagCanvas" width="1200" height="760"></canvas>
+        </section>
+    </main>
+
+    <script src="main.js"></script>
+    <script>
+        const aiCanvas = document.getElementById('aiFlagCanvas');
+        const aiCtx = aiCanvas.getContext('2d');
+        const promptInput = document.getElementById('aiPrompt');
+        const styleInput = document.getElementById('aiStyle');
+        const statusEl = document.getElementById('aiStatus');
+        let lastPrompt = promptInput.value;
+
+        const palettes = {
+            modern: ['#111827', '#f8fafc', '#22c55e', '#38bdf8'],
+            heritage: ['#7f1d1d', '#f8e7c9', '#1f2937', '#c8a24a'],
+            sport: ['#0f172a', '#ffffff', '#ef4444', '#facc15'],
+            festival: ['#ec4899', '#f97316', '#fef3c7', '#14b8a6']
+        };
+
+        function hashText(text) {
+            return [...text].reduce((hash, char) => ((hash << 5) - hash + char.charCodeAt(0)) | 0, 0);
+        }
+
+        function pickSymbol(prompt) {
+            const text = prompt.toLowerCase();
+            if (text.includes('moon') || text.includes('luna')) return 'moon';
+            if (text.includes('star') || text.includes('estrella')) return 'star';
+            if (text.includes('sun') || text.includes('sol')) return 'sun';
+            if (text.includes('mountain') || text.includes('montana')) return 'mountain';
+            return 'crest';
+        }
+
+        function drawStar(ctx, x, y, radius, color) {
+            ctx.save();
+            ctx.translate(x, y);
+            ctx.beginPath();
+            for (let i = 0; i < 10; i++) {
+                const angle = -Math.PI / 2 + i * Math.PI / 5;
+                const r = i % 2 === 0 ? radius : radius * 0.42;
+                ctx.lineTo(Math.cos(angle) * r, Math.sin(angle) * r);
+            }
+            ctx.closePath();
+            ctx.fillStyle = color;
+            ctx.fill();
+            ctx.restore();
+        }
+
+        function drawGeneratedFlag() {
+            const prompt = promptInput.value.trim() || promptInput.placeholder;
+            const style = styleInput.value;
+            const palette = palettes[style];
+            const seed = Math.abs(hashText(prompt + style));
+            const layout = seed % 4;
+            const symbol = pickSymbol(prompt);
+
+            aiCtx.clearRect(0, 0, aiCanvas.width, aiCanvas.height);
+            aiCtx.fillStyle = palette[0];
+            aiCtx.fillRect(0, 0, aiCanvas.width, aiCanvas.height);
+
+            if (layout === 0) {
+                aiCtx.fillStyle = palette[1];
+                aiCtx.fillRect(0, 0, aiCanvas.width, aiCanvas.height / 3);
+                aiCtx.fillStyle = palette[2];
+                aiCtx.fillRect(0, aiCanvas.height * 2 / 3, aiCanvas.width, aiCanvas.height / 3);
+            } else if (layout === 1) {
+                aiCtx.fillStyle = palette[2];
+                aiCtx.beginPath();
+                aiCtx.moveTo(0, 0);
+                aiCtx.lineTo(aiCanvas.width * 0.42, aiCanvas.height / 2);
+                aiCtx.lineTo(0, aiCanvas.height);
+                aiCtx.closePath();
+                aiCtx.fill();
+            } else if (layout === 2) {
+                aiCtx.fillStyle = palette[1];
+                aiCtx.fillRect(aiCanvas.width * 0.38, 0, aiCanvas.width * 0.24, aiCanvas.height);
+                aiCtx.fillStyle = palette[3];
+                aiCtx.fillRect(0, aiCanvas.height * 0.42, aiCanvas.width, aiCanvas.height * 0.16);
+            } else {
+                aiCtx.fillStyle = palette[2];
+                aiCtx.translate(aiCanvas.width / 2, aiCanvas.height / 2);
+                aiCtx.rotate(-0.2);
+                aiCtx.fillRect(-aiCanvas.width, -90, aiCanvas.width * 2, 180);
+                aiCtx.setTransform(1, 0, 0, 1, 0, 0);
+            }
+
+            aiCtx.globalAlpha = 0.16;
+            for (let i = 0; i < 9; i++) {
+                aiCtx.fillStyle = i % 2 ? palette[1] : palette[3];
+                aiCtx.fillRect(-100 + i * 180, 0, 70, aiCanvas.height);
+            }
+            aiCtx.globalAlpha = 1;
+
+            const cx = aiCanvas.width * 0.5;
+            const cy = aiCanvas.height * 0.5;
+            aiCtx.fillStyle = palette[1];
+            aiCtx.beginPath();
+            aiCtx.arc(cx, cy, 132, 0, Math.PI * 2);
+            aiCtx.fill();
+            aiCtx.strokeStyle = palette[0];
+            aiCtx.lineWidth = 18;
+            aiCtx.stroke();
+
+            if (symbol === 'star') drawStar(aiCtx, cx, cy, 82, palette[2]);
+            if (symbol === 'moon') {
+                aiCtx.fillStyle = palette[2];
+                aiCtx.beginPath();
+                aiCtx.arc(cx - 18, cy, 82, 0, Math.PI * 2);
+                aiCtx.fill();
+                aiCtx.fillStyle = palette[1];
+                aiCtx.beginPath();
+                aiCtx.arc(cx + 22, cy - 10, 78, 0, Math.PI * 2);
+                aiCtx.fill();
+            }
+            if (symbol === 'sun') {
+                for (let i = 0; i < 16; i++) {
+                    aiCtx.save();
+                    aiCtx.translate(cx, cy);
+                    aiCtx.rotate(i * Math.PI / 8);
+                    aiCtx.fillStyle = palette[2];
+                    aiCtx.fillRect(88, -8, 54, 16);
+                    aiCtx.restore();
+                }
+                aiCtx.fillStyle = palette[3];
+                aiCtx.beginPath();
+                aiCtx.arc(cx, cy, 66, 0, Math.PI * 2);
+                aiCtx.fill();
+            }
+            if (symbol === 'mountain') {
+                aiCtx.fillStyle = palette[2];
+                aiCtx.beginPath();
+                aiCtx.moveTo(cx - 100, cy + 70);
+                aiCtx.lineTo(cx - 20, cy - 70);
+                aiCtx.lineTo(cx + 38, cy + 16);
+                aiCtx.lineTo(cx + 82, cy - 46);
+                aiCtx.lineTo(cx + 120, cy + 70);
+                aiCtx.closePath();
+                aiCtx.fill();
+            }
+            if (symbol === 'crest') {
+                aiCtx.fillStyle = palette[2];
+                aiCtx.beginPath();
+                aiCtx.moveTo(cx, cy - 92);
+                aiCtx.lineTo(cx + 82, cy - 42);
+                aiCtx.lineTo(cx + 58, cy + 82);
+                aiCtx.lineTo(cx, cy + 112);
+                aiCtx.lineTo(cx - 58, cy + 82);
+                aiCtx.lineTo(cx - 82, cy - 42);
+                aiCtx.closePath();
+                aiCtx.fill();
+            }
+
+            lastPrompt = prompt;
+            statusEl.textContent = 'Generated from: ' + prompt.slice(0, 96);
+        }
+
+        async function saveAiFlag() {
+            if (!isUserLoggedIn() || !localStorage.getItem('token')) {
+                window.location.href = 'login.html';
+                return;
+            }
+
+            const image = aiCanvas.toDataURL('image/png');
+            const payload = {
+                name: 'AI flag - ' + lastPrompt.slice(0, 38),
+                data: image,
+                tamano: 'Large',
+                colores: styleInput.value,
+                id_producto: null,
+                precio_personalizacion: 15,
+                publicar: true,
+                nombre_publicacion: 'AI flag - ' + lastPrompt.slice(0, 38),
+                descripcion_publicacion: lastPrompt,
+                etiquetas: 'ai, generated, flag'
+            };
+
+            statusEl.textContent = 'Saving...';
+            const result = await api.saveDesign(payload);
+            statusEl.textContent = result?.success ? 'Saved in My Designs.' : 'Could not save this design.';
+        }
+
+        document.getElementById('generateAiFlag').addEventListener('click', drawGeneratedFlag);
+        document.getElementById('saveAiFlag').addEventListener('click', saveAiFlag);
+        promptInput.addEventListener('keydown', (event) => {
+            if ((event.ctrlKey || event.metaKey) && event.key === 'Enter') drawGeneratedFlag();
+        });
+        drawGeneratedFlag();
+    </script>
+</body>
+</html>

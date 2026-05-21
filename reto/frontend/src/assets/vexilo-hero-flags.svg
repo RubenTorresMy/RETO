@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 820" role="img" aria-labelledby="title desc">
+  <title id="title">VEXILO custom flags hero</title>
+  <desc id="desc">Premium studio scene with folded flags, fabric rolls, and shipping boxes.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="0.55" stop-color="#eef2f6"/>
+      <stop offset="1" stop-color="#d9e1ea"/>
+    </linearGradient>
+    <linearGradient id="black" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#20242a"/>
+      <stop offset="1" stop-color="#050607"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="24" stdDeviation="24" flood-color="#111827" flood-opacity=".22"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="820" fill="url(#bg)"/>
+  <path d="M0 670c138-80 274-111 408-94 194 25 278 113 468 70 120-28 213-89 324-83v257H0Z" fill="#cfd8e3"/>
+  <g filter="url(#shadow)">
+    <rect x="136" y="438" width="814" height="232" rx="18" fill="#fff"/>
+    <rect x="136" y="438" width="814" height="62" rx="18" fill="#111"/>
+    <text x="177" y="478" fill="#fff" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="800" letter-spacing="5">VEXILO</text>
+    <text x="177" y="535" fill="#111827" font-family="Segoe UI, Arial, sans-serif" font-size="30" font-weight="800">Custom flag production</text>
+    <text x="177" y="574" fill="#667085" font-family="Segoe UI, Arial, sans-serif" font-size="18">Designed, printed and prepared for delivery</text>
+    <rect x="705" y="522" width="173" height="82" rx="10" fill="#f0c04a"/>
+    <path d="M705 548h173" stroke="#976f19" stroke-width="5" opacity=".55"/>
+    <path d="M790 522v82" stroke="#976f19" stroke-width="5" opacity=".35"/>
+    <text x="744" y="575" fill="#111" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="900">VEXILO</text>
+  </g>
+  <g filter="url(#shadow)">
+    <path d="M329 191c119-47 235-46 348 3 12 5 20 17 20 30v208c0 19-18 33-36 27-101-37-207-37-318 0-18 6-36-8-36-27V224c0-14 9-28 22-33Z" fill="#fff"/>
+    <path d="M329 191c119-47 235-46 348 3 12 5 20 17 20 30v52c-132-46-262-46-390 0v-52c0-14 9-28 22-33Z" fill="#d90429"/>
+    <path d="M307 276c128-46 258-46 390 0v76c-132-46-262-46-390 0Z" fill="#f9c74f"/>
+    <path d="M307 352c128-46 258-46 390 0v80c0 19-18 33-36 27-101-37-207-37-318 0-18 6-36-8-36-27Z" fill="#d90429"/>
+  </g>
+  <g filter="url(#shadow)" transform="translate(735 166) rotate(5)">
+    <rect width="250" height="168" rx="18" fill="#fff"/>
+    <rect width="250" height="56" rx="18" fill="#012169"/>
+    <rect y="56" width="250" height="56" fill="#fff"/>
+    <rect y="112" width="250" height="56" rx="18" fill="#c8102e"/>
+  </g>
+  <g filter="url(#shadow)" transform="translate(128 185) rotate(-7)">
+    <rect width="240" height="156" rx="18" fill="#009246"/>
+    <rect x="80" width="80" height="156" fill="#fff"/>
+    <rect x="160" width="80" height="156" rx="18" fill="#ce2b37"/>
+  </g>
+  <g opacity=".72">
+    <circle cx="1008" cy="604" r="92" fill="#111" opacity=".05"/>
+    <circle cx="1036" cy="230" r="58" fill="#111" opacity=".06"/>
+    <circle cx="163" cy="622" r="38" fill="#111" opacity=".06"/>
+  </g>
+</svg>
